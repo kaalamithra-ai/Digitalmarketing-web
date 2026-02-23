@@ -1,26 +1,527 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff7fa;
+  --foreground: #0b0b10;
+  --heading: #0b0b10;
+  --body-text: #111827;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.55;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+p,
+li,
+label,
+input,
+textarea,
+button {
+  color: var(--body-text);
+}
+
+@layer utilities {
+  .animate-float {
+    animation: floaty 6s ease-in-out infinite;
+  }
+
+  .animate-float2 {
+    animation: floaty 8.5s ease-in-out 0.4s infinite;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-soft {
+    background-color: #fff7fa;
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(233, 30, 99, 0.12), transparent 34%),
+      radial-gradient(circle at 88% 14%, rgba(255, 77, 141, 0.12), transparent 33%),
+      radial-gradient(circle at 50% 84%, rgba(194, 24, 91, 0.07), transparent 30%);
+  }
+
+  .text-grad-pink {
+    background-image: linear-gradient(115deg, #c2185b 0%, #e91e63 55%, #ff4d8d 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 7s ease-in-out infinite;
+  }
+
+  .btn-primary {
+    border-radius: 0.75rem;
+    background-image: linear-gradient(120deg, #c2185b 0%, #e91e63 55%, #ff4d8d 100%);
+    color: #fff;
+    box-shadow: 0 16px 38px -22px rgba(194, 24, 91, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 22px 52px -20px rgba(233, 30, 99, 0.55);
+    filter: saturate(1.05);
+  }
+
+  .btn-primary:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba(255, 241, 246, 0.95),
+      0 0 0 6px rgba(194, 24, 91, 0.25);
+  }
+
+  .btn-ghost {
+    border-radius: 0.75rem;
+    border: 1px solid rgba(194, 24, 91, 0.35);
+    background: rgba(255, 255, 255, 0.8);
+    color: #9e154a;
+    transition: all 0.2s ease;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(194, 24, 91, 0.6);
+    background: rgba(255, 241, 246, 0.95);
+    color: #7d113a;
+  }
+
+  .btn-ghost:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(194, 24, 91, 0.2);
+  }
+
+  .card-premium {
+    border: 1px solid rgba(194, 24, 91, 0.14);
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 20px 55px -40px rgba(15, 23, 42, 0.42);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .card-premium:hover {
+    transform: translateY(-2px);
+    border-color: rgba(194, 24, 91, 0.28);
+    box-shadow: 0 22px 52px -30px rgba(194, 24, 91, 0.32);
+  }
+
+  .input-modern {
+    width: 100%;
+    border: 1px solid rgba(203, 213, 225, 1);
+    border-radius: 0.75rem;
+    background: #fff;
+    padding: 0.65rem 1rem;
+    color: #0b0b10;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .input-modern:focus {
+    border-color: rgba(194, 24, 91, 0.55);
+    box-shadow: 0 0 0 4px rgba(194, 24, 91, 0.14);
+  }
+
+  .link-pink {
+    color: #9e154a;
+    transition: color 0.2s ease;
+  }
+
+  .link-pink:hover {
+    color: #c2185b;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(115deg, #c2185b 0%, #e91e63 55%, #ff4d8d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-glow {
+    text-shadow:
+      0 0 12px rgba(194, 24, 91, 0.18),
+      0 0 18px rgba(233, 30, 99, 0.16),
+      0 0 24px rgba(255, 77, 141, 0.14);
+  }
+
+  .float-text-slow {
+    animation: floatTextSlow 8.5s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .float-text-med {
+    animation: floatTextMed 6.5s ease-in-out infinite;
+    will-change: transform;
+  }
+}
+
+@keyframes floatTextSlow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.6deg);
+  }
+}
+
+@keyframes floatTextMed {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(-0.5deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes floatMed {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@keyframes floatFast {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes floatSoft {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(-14px);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes letterFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.headingGradient {
+  background: linear-gradient(90deg, #c2185b, #e91e63, #ff4d8d);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 11s ease-in-out infinite;
+}
+
+.animate-float-med {
+  animation: floatMed 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: floatFast 6s ease-in-out infinite;
+}
+
+.float-soft {
+  animation: floatY 7s ease-in-out infinite;
+}
+
+/* Animations */
+/* Floating words and soft hover motion */
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate3d(18px, -8px, 0) scale(1.03);
+    opacity: 1;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translate3d(-120%, 0, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate3d(130%, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translate3d(0, 18px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.anim-float {
+  animation: floatY 8s ease-in-out infinite;
+}
+
+.anim-drift {
+  animation: drift 16s ease-in-out infinite;
+}
+
+.anim-shine {
+  animation: shine 2.4s linear infinite;
+}
+
+.float-illustration {
+  animation: floatIllustration 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes floatIllustration {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatMedia {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-media {
+  animation: floatMedia 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-ring {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-icon {
+  animation: floatIcon 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.tilt-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(0);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  will-change: transform;
+}
+
+.glass-hover-card {
+  background: linear-gradient(120deg, rgba(45, 212, 191, 0.34), rgba(139, 92, 246, 0.34), rgba(249, 115, 22, 0.32));
+}
+
+.glass-hover-card > div {
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.glass-hover-card:hover > div {
+  transform: scale(1.02);
+  box-shadow: 0 30px 80px -42px rgba(59, 130, 246, 0.42);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.flip-card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+.will-change-transform {
+  will-change: transform, opacity;
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+}
+
+.reveal-show {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-float,
+  .anim-drift,
+  .anim-shine,
+  .float-illustration,
+  .float-media,
+  .float-icon,
+  .float-text-slow,
+  .float-text-med {
+    animation: none !important;
+  }
+
+  .animated-ring {
+    animation: none !important;
+  }
+
+  .tilt-card {
+    transform: none !important;
+  }
+
+  .flip-card-inner {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .flip-card-back {
+    display: none !important;
+  }
+
+  .headingGradient {
+    animation: none !important;
+  }
+
+  .text-grad-pink {
+    animation: none !important;
+  }
+
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
