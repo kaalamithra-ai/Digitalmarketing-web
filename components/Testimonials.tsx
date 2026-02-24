@@ -35,7 +35,7 @@ export default function Testimonials() {
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-grad-pink text-glow float-text-med text-3xl font-semibold md:text-4xl">
+          <h2 className="text-grad-blue text-glow float-text-med text-3xl font-semibold md:text-4xl">
             Testimonials
           </h2>
           <p className="mt-4 text-base text-slate-600 md:text-lg">
@@ -67,3 +67,4 @@ export default function Testimonials() {
     </motion.section>
   );
 }
+

@@ -176,7 +176,7 @@ export default function OpenPositions({ selectedJobId, onSelectJob }: OpenPositi
                 onClick={() => onSelectJob(job)}
                 className={`w-full rounded-2xl border p-6 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
                   active
-                    ? "border-primary/50 bg-teal-50/60 shadow-[0_18px_45px_-28px_rgba(15,185,177,0.55)]"
+                    ? "border-primary/50 bg-blue-50/70 shadow-[0_18px_45px_-28px_rgba(37,99,235,0.45)]"
                     : "border-slate-200 bg-white hover:-translate-y-0.5 hover:shadow-[0_18px_45px_-30px_rgba(15,23,42,0.45)]"
                 }`}
                 aria-pressed={active}
@@ -203,3 +203,4 @@ export default function OpenPositions({ selectedJobId, onSelectJob }: OpenPositi
     </section>
   );
 }
+

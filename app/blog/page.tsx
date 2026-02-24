@@ -29,9 +29,11 @@ export default function BlogPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_0%,rgba(56,189,248,0.16),transparent_36%),radial-gradient(circle_at_84%_0%,rgba(139,92,246,0.16),transparent_34%),radial-gradient(circle_at_50%_100%,rgba(20,184,166,0.12),transparent_40%)]" />
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-700">Blog</p>
-          <h1 className="mt-4 max-w-4xl text-balance text-4xl font-semibold leading-tight md:text-6xl">
-            Insights for modern digital growth teams.
-          </h1>
+          <div className="hero-float">
+            <h1 className="animate-heading-float hero-animated-text shimmer mt-4 max-w-4xl text-balance text-4xl font-semibold leading-tight text-blue-700 motion-reduce:animate-none md:text-6xl">
+              Insights for modern digital growth teams.
+            </h1>
+          </div>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
             Practical marketing insights on SEO, performance, content, social, email, branding, and conversion-focused execution.
           </p>
@@ -67,7 +69,7 @@ export default function BlogPage() {
                     <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">{post.excerpt}</p>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-700 transition hover:text-teal-800"
+                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-700 transition hover:text-blue-800"
                     >
                       Read More <span aria-hidden>&rarr;</span>
                     </Link>
@@ -81,3 +83,4 @@ export default function BlogPage() {
     </main>
   );
 }
+

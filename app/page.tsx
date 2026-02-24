@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import WhyUs from "@/components/WhyUs";
+import WhyUsGlow from "@/components/home/WhyUsGlow";
 import ServicesGrid from "@/components/services/ServicesGrid";
 import WorkingProcessWithClouds from "@/components/home/WorkingProcessWithClouds";
 import Testimonials from "@/components/Testimonials";
@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       <Hero />
-      <WhyUs />
+      <WhyUsGlow />
       <ServicesGrid limit={3} />
       <WorkingProcessWithClouds />
       <Testimonials />
@@ -38,7 +38,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 text-center md:flex-row md:items-end md:justify-between md:text-left">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">Blog Preview</p>
-              <h2 className="mt-3 text-3xl font-semibold text-slate-900 md:text-5xl">Insights for AI-first growth teams</h2>
+              <h2 className="hero-animated-text shimmer mt-3 text-3xl font-semibold md:text-5xl">Insights for AI-first growth teams</h2>
             </div>
             <Link
               href="/blog"

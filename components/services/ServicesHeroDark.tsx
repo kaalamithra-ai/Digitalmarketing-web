@@ -126,9 +126,9 @@ function toneClasses(tone: Tone) {
     return "border-cyan-300/30 bg-gradient-to-br from-cyan-400/22 to-blue-500/10 group-hover:shadow-cyan-400/45";
   }
   if (tone === "violet") {
-    return "border-fuchsia-300/30 bg-gradient-to-br from-fuchsia-400/20 to-violet-500/10 group-hover:shadow-fuchsia-400/40";
+    return "border-indigo-300/30 bg-gradient-to-br from-indigo-400/20 to-violet-500/10 group-hover:shadow-indigo-400/40";
   }
-  return "border-orange-300/30 bg-gradient-to-br from-orange-400/20 to-rose-500/10 group-hover:shadow-orange-300/45";
+  return "border-orange-300/30 bg-gradient-to-br from-orange-400/20 to-cyan-500/10 group-hover:shadow-orange-300/45";
 }
 
 function Card({
@@ -186,9 +186,9 @@ export default function ServicesHeroDark() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 -z-20 bg-[#070A14]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_16%_0%,rgba(56,189,248,0.24),transparent_40%),radial-gradient(circle_at_84%_0%,rgba(217,70,239,0.2),transparent_38%),radial-gradient(circle_at_50%_86%,rgba(249,115,22,0.16),transparent_45%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_16%_0%,rgba(56,189,248,0.24),transparent_40%),radial-gradient(circle_at_84%_0%,rgba(79,70,229,0.2),transparent_38%),radial-gradient(circle_at_50%_86%,rgba(249,115,22,0.16),transparent_45%)]" />
       <div className="absolute -left-20 top-14 -z-10 h-72 w-72 rounded-full bg-cyan-500/18 blur-3xl" />
-      <div className="absolute -right-16 top-10 -z-10 h-72 w-72 rounded-full bg-fuchsia-500/16 blur-3xl" />
+      <div className="absolute -right-16 top-10 -z-10 h-72 w-72 rounded-full bg-indigo-500/16 blur-3xl" />
       <div className="absolute inset-0 -z-10 opacity-30 [background-image:radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:28px_28px]" />
 
       <div className="mx-auto max-w-7xl px-4 pb-20 pt-20 md:px-6 md:pb-24 md:pt-28">
@@ -251,7 +251,7 @@ export default function ServicesHeroDark() {
             </motion.div>
           </div>
 
-          <div className="pointer-events-none absolute inset-x-0 -bottom-8 mx-auto hidden h-28 max-w-6xl rounded-full bg-gradient-to-r from-cyan-500/10 via-fuchsia-500/10 to-orange-500/10 blur-2xl md:block" />
+          <div className="pointer-events-none absolute inset-x-0 -bottom-8 mx-auto hidden h-28 max-w-6xl rounded-full bg-gradient-to-r from-cyan-500/10 via-indigo-500/10 to-orange-500/10 blur-2xl md:block" />
         </div>
 
         <div className="mt-14 rounded-3xl border border-white/15 bg-gradient-to-r from-white/10 via-white/6 to-white/10 p-7 backdrop-blur-xl shadow-[0_24px_70px_-40px_rgba(15,23,42,0.8)] md:p-9">
@@ -274,3 +274,4 @@ export default function ServicesHeroDark() {
     </section>
   );
 }
+

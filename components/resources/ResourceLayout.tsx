@@ -67,7 +67,7 @@ export default function ResourceLayout({
               href={`/resources/${category.value}`}
               className={`rounded-full border px-4 py-1.5 text-sm transition ${
                 isActive
-                  ? "border-primary bg-primary text-white"
+                  ? "btn-primary border-transparent text-white"
                   : "border-slate-200 bg-white text-slate-700 hover:border-primary hover:text-primary"
               }`}
             >

@@ -84,7 +84,7 @@ export default function WhyRightForYou({
       <div className="mt-6 grid gap-6 md:grid-cols-3">
         <FeatureCard
           item={bottomCards[0]}
-          tintClass="from-white to-pink-50"
+          tintClass="from-white to-blue-50"
           minHeightClass="min-h-[170px]"
         />
         <FeatureCard
@@ -101,3 +101,4 @@ export default function WhyRightForYou({
     </section>
   );
 }
+

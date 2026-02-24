@@ -12,14 +12,14 @@ type Props = {
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white/85 shadow-sm">
+    <article className="group rounded-2xl border border-slate-200 bg-white/85 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md">
       <button
         type="button"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
         className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
       >
-        <span className="text-sm font-semibold text-slate-900 md:text-base">{q}</span>
+        <span className="text-sm font-semibold text-slate-900 transition-colors duration-300 group-hover:text-blue-600 md:text-base">{q}</span>
         <span
           className={`inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition ${
             open ? "rotate-45" : ""
@@ -60,7 +60,11 @@ export default function ServiceDetailTemplate({ data }: Props) {
                 </span>
               ))}
             </div>
-            <h1 className="mt-5 text-4xl font-bold leading-tight md:text-5xl">{data.title}</h1>
+            <div className="hero-float">
+              <h1 className="hero-animated-text shimmer mt-5 text-4xl font-bold leading-tight motion-reduce:animate-none md:text-5xl">
+                {data.title}
+              </h1>
+            </div>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">{data.subtitle}</p>
           </div>
 
@@ -86,14 +90,14 @@ export default function ServiceDetailTemplate({ data }: Props) {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold md:text-3xl">What You Get</h2>
+          <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">What You Get</h2>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             {data.whatYouGet.map((item) => (
               <article
                 key={item.title}
-                className="rounded-2xl border border-white/70 bg-white/75 p-5 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md"
+                className="group rounded-2xl border border-white/70 bg-white/75 p-5 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md"
               >
-                <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-slate-900 transition-colors duration-300 group-hover:text-blue-600">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.description}</p>
               </article>
             ))}
@@ -101,12 +105,12 @@ export default function ServiceDetailTemplate({ data }: Props) {
         </section>
 
         <section className="mt-10 rounded-3xl border border-white/70 bg-white/75 p-6 shadow-sm backdrop-blur md:p-8">
-          <h2 className="text-2xl font-semibold md:text-3xl">Our Process</h2>
+          <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">Our Process</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {data.processSteps.map((step, index) => (
-              <article key={step.title} className="rounded-2xl border border-slate-200 bg-white/90 p-4">
+              <article key={step.title} className="group rounded-2xl border border-slate-200 bg-white/90 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Step {index + 1}</p>
-                <h3 className="mt-2 text-base font-semibold text-slate-900">{step.title}</h3>
+                <h3 className="mt-2 text-base font-semibold text-slate-900 transition-colors duration-300 group-hover:text-blue-600">{step.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.description}</p>
               </article>
             ))}
@@ -115,7 +119,7 @@ export default function ServiceDetailTemplate({ data }: Props) {
 
         <section className="mt-10 grid gap-6 lg:grid-cols-12">
           <article className="rounded-3xl border border-white/70 bg-white/75 p-6 shadow-sm backdrop-blur lg:col-span-8 md:p-8">
-            <h2 className="text-2xl font-semibold md:text-3xl">Deliverables</h2>
+            <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">Deliverables</h2>
             <div className="mt-5 flex flex-wrap gap-2">
               {data.deliverables.map((item) => (
                 <span
@@ -150,14 +154,14 @@ export default function ServiceDetailTemplate({ data }: Props) {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold md:text-3xl">KPI Impact</h2>
+          <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">KPI Impact</h2>
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {data.kpiImpact.map((metric) => (
               <article
                 key={metric.label}
-                className="rounded-3xl border border-white/70 bg-white/75 p-6 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md"
+                className="group rounded-3xl border border-white/70 bg-white/75 p-6 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md"
               >
-                <p className="text-sm font-medium text-slate-500">{metric.label}</p>
+                <p className="text-sm font-medium text-slate-500 transition-colors duration-300 group-hover:text-blue-600">{metric.label}</p>
                 <p className="mt-2 text-3xl font-bold" style={{ color: data.accent.from }}>
                   {metric.value}
                 </p>
@@ -168,7 +172,7 @@ export default function ServiceDetailTemplate({ data }: Props) {
         </section>
 
         <section className="mt-10 rounded-3xl border border-white/70 bg-white/75 p-6 shadow-sm backdrop-blur md:p-8">
-          <h2 className="text-2xl font-semibold md:text-3xl">FAQ</h2>
+          <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">FAQ</h2>
           <div className="mt-5 space-y-3">
             {data.faq.map((item) => (
               <FaqItem key={item.q} q={item.q} a={item.a} />
@@ -179,7 +183,7 @@ export default function ServiceDetailTemplate({ data }: Props) {
         <div className="mt-8">
           <Link
             href="/services"
-            className="inline-flex rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+            className="btn-primary cta-btn-glow inline-flex rounded-full px-6 py-3 text-sm font-semibold text-white transition"
           >
             &larr; Back to Services
           </Link>

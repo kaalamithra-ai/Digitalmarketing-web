@@ -6,66 +6,72 @@ import Container from "@/components/ui/Container";
 export default function WhyUs() {
   return (
     <motion.section
-      className="relative isolate overflow-hidden bg-gradient-to-br from-cyan-50 via-white to-indigo-50 py-14 md:py-20"
+      className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_16%_12%,rgba(59,130,246,0.18),transparent_35%),radial-gradient(circle_at_84%_18%,rgba(99,102,241,0.16),transparent_32%),linear-gradient(145deg,#f5f9ff_0%,#eef5ff_44%,#f6f9ff_100%)] py-16 md:py-24"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="sr-only" data-debug="WHY-US-UPDATED" />
-      <div className="pointer-events-none absolute -left-16 top-8 h-56 w-56 rounded-full bg-cyan-300/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-16 bottom-10 h-64 w-64 rounded-full bg-indigo-300/20 blur-3xl" />
+      <div className="pointer-events-none absolute -left-20 top-8 h-72 w-72 rounded-full bg-blue-400/20 blur-3xl" />
+      <div className="pointer-events-none absolute -right-20 top-14 h-80 w-80 rounded-full bg-indigo-400/20 blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-200/20 blur-3xl" />
 
-      <span className="pointer-events-none absolute left-[6%] top-14 hidden text-6xl font-semibold text-slate-700/[0.1] md:block float-wu-fast">
+      <span className="pointer-events-none absolute left-[6%] top-10 hidden text-6xl font-semibold tracking-tight text-slate-900/[0.09] md:block float-wu-fast">
         Strategy
       </span>
-      <span className="pointer-events-none absolute right-[9%] top-24 hidden text-5xl font-semibold text-slate-700/[0.08] lg:block float-wu-mid">
+      <span className="pointer-events-none absolute right-[7%] top-12 hidden text-5xl font-semibold tracking-tight text-slate-900/[0.08] lg:block float-wu-mid">
         ROI
       </span>
-      <span className="pointer-events-none absolute right-[10%] bottom-16 hidden text-5xl font-semibold text-slate-700/[0.09] lg:block float-wu-slow">
+      <span className="pointer-events-none absolute bottom-14 right-[8%] hidden text-5xl font-semibold tracking-tight text-slate-900/[0.08] lg:block float-wu-slow">
         Conversion
       </span>
 
-      <div className="pointer-events-none absolute left-[18%] top-[26%] h-4 w-4 rounded-full bg-cyan-400/30 blur-[1px] float-wu-fast" />
-      <div className="pointer-events-none absolute right-[16%] top-[38%] h-5 w-5 rounded-full bg-indigo-400/25 blur-[1px] float-wu-mid" />
-      <div className="pointer-events-none absolute left-[42%] bottom-[18%] h-3.5 w-3.5 rounded-full bg-cyan-500/25 blur-[1px] float-wu-slow" />
+      <div className="pointer-events-none absolute left-[17%] top-[24%] h-1.5 w-1.5 rounded-full bg-blue-500/50 shadow-[0_0_22px_rgba(59,130,246,0.5)] float-wu-fast" />
+      <div className="pointer-events-none absolute right-[15%] top-[34%] h-2 w-2 rounded-full bg-indigo-500/45 shadow-[0_0_22px_rgba(99,102,241,0.4)] float-wu-mid" />
+      <div className="pointer-events-none absolute bottom-[22%] left-[45%] h-1.5 w-1.5 rounded-full bg-cyan-500/50 shadow-[0_0_20px_rgba(6,182,212,0.45)] float-wu-slow" />
 
-      <Container className="relative z-10 grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <Container className="relative z-10 grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <h2 className="text-3xl font-semibold text-slate-900 md:text-4xl">
+          <h2 className="text-4xl font-extrabold text-[#0B1B3A] md:text-5xl">
             Why Us
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
             Because growth shouldn&apos;t be guesswork. We don&apos;t run campaigns just to stay busy -
             every move we make has a purpose. Our focus is on understanding how your customers think,
             search, click, and buy, then building marketing systems that work consistently, not temporarily.
           </p>
-          <ul className="mt-6 space-y-3 text-sm text-slate-600">
-            <li className="flex items-start gap-3 rounded-2xl border border-white/50 bg-white/70 p-4 shadow-[0_20px_50px_-38px_rgba(15,23,42,0.45)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_55px_-36px_rgba(15,23,42,0.5)]">
-              <span className="mt-1 h-2.5 w-2.5 rounded-full bg-indigo-500" />
-              We Start With Clarity, Not Tools
+          <ul className="mt-7 space-y-4 text-sm text-slate-700 md:text-base">
+            <li className="flex items-start gap-3 rounded-full border border-white/60 bg-white/60 px-5 py-4 backdrop-blur-xl shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)]">
+              <span className="mt-2 inline-flex h-2.5 w-2.5 rounded-full bg-blue-500 shadow-[0_0_14px_rgba(59,130,246,0.85)]" />
+              <span>We Start With Clarity, Not Tools</span>
             </li>
-            <li className="flex items-start gap-3 rounded-2xl border border-white/50 bg-white/70 p-4 shadow-[0_20px_50px_-38px_rgba(15,23,42,0.45)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_55px_-36px_rgba(15,23,42,0.5)]">
-              <span className="mt-1 h-2.5 w-2.5 rounded-full bg-indigo-500" />
-              Before ads, SEO, or content, we study your business, audience, and competitors.
+            <li className="flex items-start gap-3 rounded-full border border-white/60 bg-white/60 px-5 py-4 backdrop-blur-xl shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)]">
+              <span className="mt-2 inline-flex h-2.5 w-2.5 rounded-full bg-blue-500 shadow-[0_0_14px_rgba(59,130,246,0.85)]" />
+              <span>Before ads, SEO, or content, we study your business, audience, and competitors.</span>
             </li>
-            <li className="flex items-start gap-3 rounded-2xl border border-white/50 bg-white/70 p-4 shadow-[0_20px_50px_-38px_rgba(15,23,42,0.45)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_55px_-36px_rgba(15,23,42,0.5)]">
-              <span className="mt-1 h-2.5 w-2.5 rounded-full bg-indigo-500" />
-              Clear strategy comes first - execution follows.
+            <li className="flex items-start gap-3 rounded-full border border-white/60 bg-white/60 px-5 py-4 backdrop-blur-xl shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)]">
+              <span className="mt-2 inline-flex h-2.5 w-2.5 rounded-full bg-blue-500 shadow-[0_0_14px_rgba(59,130,246,0.85)]" />
+              <span>Clear strategy comes first - execution follows.</span>
             </li>
           </ul>
         </div>
-        <div className="relative overflow-hidden rounded-3xl border border-white/50 bg-white/70 p-6 shadow-[0_24px_55px_-36px_rgba(15,23,42,0.48)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_65px_-36px_rgba(15,23,42,0.5)]">
-          <span className="absolute top-4 right-5 h-2.5 w-2.5 rounded-full bg-cyan-400/60 float-wu-mid" />
-          <span className="absolute bottom-5 left-6 h-2 w-2 rounded-full bg-indigo-400/55 float-wu-fast" />
-          <span className="absolute top-1/2 right-10 h-1.5 w-1.5 rounded-full bg-cyan-500/70 float-wu-slow" />
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-600">
-            We Start With Clarity, Not Tools
-          </p>
-          <p className="mt-4 text-sm text-slate-600">
-            Before ads, SEO, or content, we study your business, audience, and competitors.
-            Clear strategy comes first - execution follows.
-          </p>
+        <div className="relative">
+          <span className="pointer-events-none absolute -left-2 top-8 h-2 w-2 rounded-full bg-blue-500/60 shadow-[0_0_18px_rgba(59,130,246,0.6)] float-wu-fast" />
+          <span className="pointer-events-none absolute -right-2 bottom-10 h-1.5 w-1.5 rounded-full bg-cyan-500/65 shadow-[0_0_18px_rgba(6,182,212,0.55)] float-wu-mid" />
+          <span className="pointer-events-none absolute right-16 top-1 h-1.5 w-1.5 rounded-full bg-indigo-500/60 shadow-[0_0_16px_rgba(99,102,241,0.55)] float-wu-slow" />
+
+          <div className="rounded-3xl bg-gradient-to-br from-blue-500 via-cyan-400 to-indigo-500 p-[2px] shadow-[0_24px_60px_-26px_rgba(59,130,246,0.35)] shadow-blue-500/20">
+            <article className="relative overflow-hidden rounded-[22px] border border-white/50 bg-white/60 p-6 backdrop-blur-xl md:p-7">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-indigo-600">
+                WE START WITH CLARITY, NOT TOOLS
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
+                Before ads, SEO, or content, we study your business, audience, and competitors.
+                <br />
+                Clear strategy comes first - execution follows.
+              </p>
+            </article>
+          </div>
         </div>
       </Container>
 

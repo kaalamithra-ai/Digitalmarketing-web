@@ -33,7 +33,7 @@ export default function CaseStudiesCarousel() {
     <section className="bg-slate-50/70 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-teal-700">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
             Case Studies
           </p>
           <h2 className="gradient-text text-glow float-text-med mt-4 text-3xl font-semibold md:text-5xl">
@@ -48,14 +48,14 @@ export default function CaseStudiesCarousel() {
           {caseStudies.map((item) => (
             <StaggerItem key={item.href}>
               <GlowCard contentClassName="flex h-full flex-col p-6" badge={item.metric}>
-                <span className="inline-flex w-fit rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
+                <span className="inline-flex w-fit rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
                   {item.metric}
                 </span>
                 <h3 className="gradient-text text-glow float-text-med mt-4 text-xl font-semibold">{item.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">{item.description}</p>
                 <Link
                   href={item.href}
-                  className="mt-6 inline-flex items-center text-sm font-semibold text-teal-700 transition duration-300 group-hover:translate-x-0.5"
+                  className="mt-6 inline-flex items-center text-sm font-semibold text-blue-700 transition duration-300 group-hover:translate-x-0.5"
                 >
                   View case study &rarr;
                 </Link>
@@ -81,3 +81,4 @@ export default function CaseStudiesCarousel() {
     </section>
   );
 }
+
