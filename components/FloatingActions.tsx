@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
-
 const WHATSAPP_URL = "https://wa.me/918884014055";
+const PHONE_URL = "tel:+918884014055";
 
 export default function FloatingActions() {
   return (
@@ -24,16 +23,16 @@ export default function FloatingActions() {
         </span>
       </a>
 
-      <Link href="/contact" aria-label="Go to contact page" className="group relative inline-flex">
+      <a href={PHONE_URL} aria-label="Call 8884014055" className="group relative inline-flex">
         <span className="pointer-events-none absolute right-14 top-1/2 -translate-y-1/2 rounded-md bg-slate-900 px-2.5 py-1 text-xs font-medium text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
-          Contact
+          Call 8884014055
         </span>
         <span className="animate-float2 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-brand-600 to-brand-400 text-white shadow-glow transition-transform duration-200 group-hover:scale-105 group-hover:shadow-glowStrong group-focus-visible:scale-105 group-focus-visible:outline-none group-focus-visible:ring-4 group-focus-visible:ring-brand-200">
           <svg viewBox="0 0 24 24" className="h-5.5 w-5.5 fill-current" aria-hidden="true">
             <path d="M6.62 10.79a15.07 15.07 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.56 0 1 .44 1 1V20c0 .56-.44 1-1 1C10.85 21 3 13.15 3 3c0-.56.44-1 1-1h3.5c.56 0 1 .44 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
           </svg>
         </span>
-      </Link>
+      </a>
     </div>
   );
 }

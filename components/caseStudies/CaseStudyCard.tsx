@@ -31,10 +31,11 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
 
       <Link
         href={`/case-studies/${caseStudy.slug}`}
-        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:text-teal-700"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:text-blue-700"
       >
         View Case Study <span aria-hidden>&rarr;</span>
       </Link>
     </GlowCard>
   );
 }
+

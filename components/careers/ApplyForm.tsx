@@ -108,7 +108,7 @@ export default function ApplyForm({ selectedRole = "" }: ApplyFormProps) {
                   onChange={(e) => setValues((prev) => ({ ...prev, fullName: e.target.value }))}
                   className="mt-2 w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                 />
-                {errors.fullName ? <p className="mt-1 text-xs text-rose-600">{errors.fullName}</p> : null}
+                {errors.fullName ? <p className="mt-1 text-xs text-blue-700">{errors.fullName}</p> : null}
               </label>
 
               <label className="block">
@@ -119,7 +119,7 @@ export default function ApplyForm({ selectedRole = "" }: ApplyFormProps) {
                   onChange={(e) => setValues((prev) => ({ ...prev, email: e.target.value }))}
                   className="mt-2 w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                 />
-                {errors.email ? <p className="mt-1 text-xs text-rose-600">{errors.email}</p> : null}
+                {errors.email ? <p className="mt-1 text-xs text-blue-700">{errors.email}</p> : null}
               </label>
 
               <label className="block">
@@ -130,7 +130,7 @@ export default function ApplyForm({ selectedRole = "" }: ApplyFormProps) {
                   onChange={(e) => setValues((prev) => ({ ...prev, phone: e.target.value }))}
                   className="mt-2 w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                 />
-                {errors.phone ? <p className="mt-1 text-xs text-rose-600">{errors.phone}</p> : null}
+                {errors.phone ? <p className="mt-1 text-xs text-blue-700">{errors.phone}</p> : null}
               </label>
 
               <label className="block">
@@ -141,7 +141,7 @@ export default function ApplyForm({ selectedRole = "" }: ApplyFormProps) {
                   onChange={(e) => setValues((prev) => ({ ...prev, role: e.target.value }))}
                   className="mt-2 w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                 />
-                {errors.role ? <p className="mt-1 text-xs text-rose-600">{errors.role}</p> : null}
+                {errors.role ? <p className="mt-1 text-xs text-blue-700">{errors.role}</p> : null}
               </label>
 
               <label className="block">
@@ -173,7 +173,7 @@ export default function ApplyForm({ selectedRole = "" }: ApplyFormProps) {
                 rows={5}
                 className="mt-2 w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               />
-              {errors.coverLetter ? <p className="mt-1 text-xs text-rose-600">{errors.coverLetter}</p> : null}
+              {errors.coverLetter ? <p className="mt-1 text-xs text-blue-700">{errors.coverLetter}</p> : null}
             </label>
 
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
@@ -203,14 +203,14 @@ export default function ApplyForm({ selectedRole = "" }: ApplyFormProps) {
                   rows={4}
                   className="mt-2 w-full rounded-xl border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                 />
-                {errors.resumeText ? <p className="mt-1 text-xs text-rose-600">{errors.resumeText}</p> : null}
+                {errors.resumeText ? <p className="mt-1 text-xs text-blue-700">{errors.resumeText}</p> : null}
               </label>
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+                className="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
               >
                 Submit application
               </button>
@@ -226,3 +226,4 @@ export default function ApplyForm({ selectedRole = "" }: ApplyFormProps) {
     </section>
   );
 }
+

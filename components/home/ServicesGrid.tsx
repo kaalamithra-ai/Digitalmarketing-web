@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -170,7 +170,7 @@ function ServiceFlipCard({ s }: { s: Service }) {
 
   return (
     <div
-      className={`flip-card group relative rounded-3xl p-[1px] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_26px_70px_-38px_rgba(2,6,23,0.35)] ${
+      className={`flip-card group relative rounded-3xl p-[1px] transition-all duration-300 hover:-translate-y-2 hover:border-blue-400 hover:shadow-[0_20px_50px_rgba(59,130,246,0.3)] hover:scale-[1.02] ${
         flipped ? "is-flipped" : ""
       }`}
       style={{ background: `linear-gradient(90deg, ${s.accent[0]}, ${s.accent[1]}, ${s.accent[2]})` }}
@@ -179,16 +179,16 @@ function ServiceFlipCard({ s }: { s: Service }) {
       <div className="flip-card-inner relative min-h-[500px] overflow-hidden rounded-3xl">
         <article className="flip-card-face absolute inset-0 flex h-full flex-col rounded-3xl border border-white/70 bg-white/80 p-7 backdrop-blur-xl">
           <div className="flex items-center justify-between">
-            <div className="rounded-xl bg-teal-100 px-4 py-2 text-sm font-semibold text-teal-700">{s.no}</div>
+            <div className="rounded-xl bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700">{s.no}</div>
             <div className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">{s.badge}</div>
           </div>
 
-          <h3 className="mt-6 text-xl font-bold text-slate-900">{s.title}</h3>
+          <h3 className="mt-6 text-xl font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-600">{s.title}</h3>
           <p className="mt-3 text-slate-600">{s.desc}</p>
 
           <button
             type="button"
-            className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-teal-700 transition hover:text-teal-800"
+            className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-blue-700 transition hover:text-blue-800"
             onClick={(e) => {
               e.stopPropagation();
               setFlipped(true);
@@ -239,7 +239,7 @@ function ServiceFlipCard({ s }: { s: Service }) {
           <ul className="mt-5 max-h-32 space-y-2 overflow-auto pr-1 text-sm text-slate-700">
             {s.details.map((detail) => (
               <li key={detail} className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-teal-500" />
+                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-500" />
                 {detail}
               </li>
             ))}
@@ -248,7 +248,7 @@ function ServiceFlipCard({ s }: { s: Service }) {
           <div className="mt-auto flex flex-col gap-3 pt-6">
             <Link
               href={s.href}
-              className="inline-flex items-center justify-center rounded-xl bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-700"
+              className="btn-primary inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold text-white transition"
             >
               View Details &rarr;
             </Link>
@@ -269,7 +269,7 @@ export default function ServicesGrid() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
       <div className="mb-10 text-center">
-        <p className="text-xs font-semibold tracking-widest text-teal-600">CORE SERVICES</p>
+        <p className="text-xs font-semibold tracking-widest text-blue-700">CORE SERVICES</p>
         <h2 className="mt-3 text-3xl font-extrabold text-slate-900 md:text-4xl">Services built for outcomes.</h2>
       </div>
 
@@ -282,7 +282,7 @@ export default function ServicesGrid() {
       <div className="mt-12 flex justify-center">
         <Link
           href="/services"
-          className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-3 text-base font-semibold text-white transition hover:bg-orange-600"
+          className="btn-primary inline-flex items-center justify-center rounded-xl px-8 py-3 text-base font-semibold text-white transition"
         >
           All Services
         </Link>
@@ -290,4 +290,5 @@ export default function ServicesGrid() {
     </section>
   );
 }
+
 

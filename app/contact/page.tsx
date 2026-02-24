@@ -248,9 +248,11 @@ export default function ContactPage() {
               <p className="inline-flex rounded-full border border-brand-200 bg-brand-50/85 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-brand-700 shadow-sm">
                 CONTACT
               </p>
-              <h1 className="text-grad-pink mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
-                Let&apos;s Connect
-              </h1>
+              <div className="hero-float">
+                <h1 className="text-grad-blue hero-animated-text shimmer mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+                  Let&apos;s Connect
+                </h1>
+              </div>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
                 Tell us about your goals. Our team responds within 24-48 hours.
               </p>
@@ -273,6 +275,9 @@ export default function ContactPage() {
           <section className="grid gap-4 md:grid-cols-3">
             <article className="card-premium rounded-2xl p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">CALL US</p>
+              <a href="tel:+918884014055" className="mt-2 block text-lg font-semibold text-slate-900">
+                8884014055
+              </a>
               <p className="mt-1 text-sm text-slate-600">Mon-Fri, 9:30 AM - 6:30 PM</p>
             </article>
             <article className="card-premium rounded-2xl p-5">
@@ -553,7 +558,7 @@ export default function ContactPage() {
 
         <RevealSection className="mt-8">
           <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-            <h2 className="text-grad-pink text-lg font-semibold">Frequently Asked Questions</h2>
+            <h2 className="text-grad-blue text-lg font-semibold">Frequently Asked Questions</h2>
             <div className="mt-5 space-y-3">
               {FAQS.map((item, idx) => (
                 <FaqItem key={item.q} index={idx} question={item.q} answer={item.a} />
@@ -566,5 +571,6 @@ export default function ContactPage() {
     </main>
   );
 }
+
 
 

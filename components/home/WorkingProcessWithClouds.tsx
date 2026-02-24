@@ -41,7 +41,7 @@ export default function WorkingProcessWithClouds() {
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-teal-700">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
             Process
           </p>
           <h2 className="gradient-text text-glow float-text-med mt-4 text-3xl font-semibold md:text-5xl">
@@ -57,7 +57,7 @@ export default function WorkingProcessWithClouds() {
             <StaggerItem key={step.title} className="relative">
               <GlowCard contentClassName="h-full p-6" badge={`Step ${index + 1}`}>
                 <div
-                  className="anim-float will-change-transform mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-sm font-semibold text-teal-700 shadow-sm"
+                  className="anim-float will-change-transform mb-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-sm font-semibold text-blue-700 shadow-sm"
                   style={{ animationDuration: `${8 + index * 2}s` }}
                 >
                   {index + 1}
@@ -84,3 +84,4 @@ export default function WorkingProcessWithClouds() {
     </section>
   );
 }
+

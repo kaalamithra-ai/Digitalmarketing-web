@@ -6,7 +6,6 @@ import ServiceIcon, { type ServiceKind } from "@/components/services/ServiceIcon
 import TiltCard from "@/components/TiltCard";
 
 type ServiceCardProps = {
-  no: string;
   title: string;
   desc: string;
   badge: string;
@@ -18,7 +17,6 @@ type ServiceCardProps = {
 };
 
 export default function ServiceCard({
-  no,
   title,
   desc,
   badge,
@@ -28,28 +26,20 @@ export default function ServiceCard({
   href,
   imageSrc,
 }: ServiceCardProps) {
-  const numberChipBg = `${accentColor}1F`;
-
   return (
     <TiltCard className="group transition-all duration-300 hover:scale-[1.02]">
       <div
         className="animated-ring rounded-3xl p-[1px] transition-shadow duration-300 group-hover:shadow-[0_24px_60px_-30px_rgba(2,6,23,0.45)]"
         style={{ backgroundImage: gradient }}
       >
-        <article className="relative rounded-3xl border border-white/60 bg-white/75 p-7 backdrop-blur-xl">
-          <div className="flex items-center justify-between">
-            <span
-              className="rounded-xl px-4 py-2 text-sm font-semibold"
-              style={{ backgroundColor: numberChipBg, color: accentColor }}
-            >
-              {no}
-            </span>
+        <article className="relative rounded-3xl border border-white/60 bg-white/75 p-7 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-blue-400 hover:shadow-[0_20px_50px_rgba(59,130,246,0.3)]">
+          <div className="flex items-center justify-end">
             <span className="rounded-full bg-white/85 px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200/70">
               {badge}
             </span>
           </div>
 
-          <h3 className="mt-6 text-2xl font-bold leading-tight text-slate-900">{title}</h3>
+          <h3 className="mt-6 text-2xl font-bold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-blue-600">{title}</h3>
           <p className="mt-4 text-base leading-relaxed text-slate-700">{desc}</p>
 
           <Link

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useMemo, useRef, useState } from "react";
 
@@ -58,7 +58,7 @@ export default function CareersPageClient() {
       {/* HERO */}
       <section className="border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-teal-700">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700">
             Careers
           </p>
           <h1 className="mt-4 text-4xl font-semibold md:text-6xl">
@@ -102,7 +102,7 @@ export default function CareersPageClient() {
                   className={[
                     "w-full rounded-xl border p-4 text-left transition",
                     selected === j.id
-                      ? "border-teal-200 bg-teal-50"
+                      ? "border-blue-200 bg-blue-50"
                       : "border-slate-200 bg-white hover:bg-slate-50",
                   ].join(" ")}
                 >
@@ -129,7 +129,7 @@ export default function CareersPageClient() {
                   <ul className="mt-3 space-y-2 text-sm text-slate-600">
                     {active.responsibilities.map((x) => (
                       <li key={x} className="flex gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-teal-600" />
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-700" />
                         <span>{x}</span>
                       </li>
                     ))}
@@ -141,7 +141,7 @@ export default function CareersPageClient() {
                   <ul className="mt-3 space-y-2 text-sm text-slate-600">
                     {active.requirements.map((x) => (
                       <li key={x} className="flex gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-teal-600" />
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-700" />
                         <span>{x}</span>
                       </li>
                     ))}
@@ -154,7 +154,7 @@ export default function CareersPageClient() {
                 <ul className="mt-3 space-y-2 text-sm text-slate-600">
                   {active.benefits.map((x) => (
                     <li key={x} className="flex gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-teal-600" />
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-700" />
                       <span>{x}</span>
                     </li>
                   ))}
@@ -163,7 +163,7 @@ export default function CareersPageClient() {
 
               <button
                 onClick={scrollToApply}
-                className="mt-10 inline-flex rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal-700"
+                className="btn-primary mt-10 inline-flex rounded-full px-6 py-3 text-sm font-semibold text-white transition"
               >
                 Apply for this role
               </button>
@@ -209,7 +209,7 @@ export default function CareersPageClient() {
 
                 <button
                   type="submit"
-                  className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-700 md:w-fit"
+                  className="btn-primary mt-2 inline-flex w-full items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white transition md:w-fit"
                 >
                   Submit
                 </button>
@@ -225,7 +225,7 @@ export default function CareersPageClient() {
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-teal-700">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-700">
                   Our Office
                 </p>
                 <h2 className="mt-3 text-2xl font-semibold md:text-3xl">Bengaluru, Karnataka, India</h2>
@@ -243,7 +243,7 @@ export default function CareersPageClient() {
                     <span className="font-semibold text-slate-800">Careers email:</span>{" "}
                     <a
                       href="mailto:tech@kaalamithra-ai.com"
-                      className="text-teal-700 transition hover:text-teal-800"
+                      className="text-blue-700 transition hover:text-blue-800"
                     >
                       tech@kaalamithra-ai.com
                     </a>
@@ -255,7 +255,7 @@ export default function CareersPageClient() {
                     href="https://maps.google.com/?q=Bengaluru%20Karnataka%20India"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-teal-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-700"
+                    className="btn-primary inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold text-white transition"
                   >
                     Open in Google Maps
                   </a>
@@ -307,3 +307,4 @@ function Field({
     </label>
   );
 }
+

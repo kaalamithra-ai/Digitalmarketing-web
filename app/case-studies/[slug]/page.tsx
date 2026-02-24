@@ -18,7 +18,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
   return (
     <main className="bg-white py-16 text-slate-900 md:py-24">
       <div className="mx-auto max-w-4xl px-4 text-center md:px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-teal-600">Case Study</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Case Study</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">{title}</h1>
         <p className="mt-4 text-slate-600">Detailed case study content will be restored here.</p>
         <Link
@@ -31,3 +31,4 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
     </main>
   );
 }
+

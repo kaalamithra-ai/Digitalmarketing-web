@@ -24,14 +24,14 @@ export default function BlogCard({
       contentClassName="overflow-hidden p-0"
     >
       <div className="p-6">
-        <span className="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-primary">
+        <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-primary">
           {category}
         </span>
         <h3 className="mt-4 text-xl font-semibold text-secondary">{title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">{excerpt}</p>
         <Link
           href={href}
-          className="mt-4 inline-flex text-sm font-semibold text-primary hover:text-teal-600"
+          className="mt-4 inline-flex text-sm font-semibold text-primary hover:text-blue-700"
         >
           Read more &rarr;
         </Link>
@@ -39,3 +39,4 @@ export default function BlogCard({
     </GlowCard>
   );
 }
+

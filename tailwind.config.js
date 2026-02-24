@@ -9,20 +9,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#C2185B",
+        primary: "#1D4ED8",
         secondary: "#111827",
-        accent: "#FF4D8D",
+        accent: "#06B6D4",
         brand: {
-          50: "#FFF1F6",
-          100: "#FFE4EF",
-          200: "#FFC7DD",
-          300: "#FF9EC4",
-          400: "#FF75AB",
-          500: "#E91E63",
-          600: "#C2185B",
-          700: "#9E154A",
-          800: "#7D113A",
-          900: "#590B2A",
+          50: "#EFF6FF",
+          100: "#DBEAFE",
+          200: "#BFDBFE",
+          300: "#93C5FD",
+          400: "#60A5FA",
+          500: "#3B82F6",
+          600: "#2563EB",
+          700: "#1D4ED8",
+          800: "#1E40AF",
+          900: "#1E3A8A",
         },
         ink: {
           50: "#F9FAFB",
@@ -38,8 +38,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        glow: "0 16px 38px -22px rgba(194,24,91,0.45)",
-        glowStrong: "0 22px 52px -20px rgba(233,30,99,0.55)",
+        glow: "0 16px 38px -22px rgba(37,99,235,0.4)",
+        glowStrong: "0 22px 52px -20px rgba(29,78,216,0.5)",
       },
     },
   },

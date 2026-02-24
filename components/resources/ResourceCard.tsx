@@ -32,10 +32,11 @@ export default function ResourceCard({ item }: ResourceCardProps) {
 
       <Link
         href={`/resources/${item.category}/${item.slug}`}
-        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:text-teal-700"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:text-blue-700"
       >
         Read Article <span aria-hidden>&rarr;</span>
       </Link>
     </GlowCard>
   );
 }
+

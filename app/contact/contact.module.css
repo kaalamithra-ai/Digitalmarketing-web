@@ -1,5 +1,5 @@
 .animate-gradient {
-  background: linear-gradient(90deg, #2563eb, #7c3aed, #ec4899);
+  background: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -54,3 +54,4 @@
     animation: none;
   }
 }
+

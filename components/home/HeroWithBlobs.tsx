@@ -38,7 +38,7 @@ export default function HeroWithBlobs() {
 
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <Reveal>
-          <p className="inline-flex items-center rounded-full border border-teal-100 bg-teal-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-teal-700">
+          <p className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
             Digital Marketing Agency
           </p>
           <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight text-slate-900 md:text-6xl">
@@ -94,3 +94,4 @@ export default function HeroWithBlobs() {
     </section>
   );
 }
+
