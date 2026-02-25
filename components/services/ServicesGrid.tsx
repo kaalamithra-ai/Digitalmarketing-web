@@ -61,7 +61,7 @@ const SERVICES: ServiceItem[] = [
     kind: "automation",
     gradient: "linear-gradient(135deg, #f1f7ff 0%, #e2edff 52%, #d7e7ff 100%)",
     accentColor: "#1d4ed8",
-    href: "/services/marketing-automation-analysis",
+    href: "/services/marketing-automation",
     imageSrc: "/services/service-automation-D9GQDyKA.png",
   },
   {
@@ -143,4 +143,3 @@ export default function ServicesGrid({ limit }: ServicesGridProps) {
     </section>
   );
 }
-

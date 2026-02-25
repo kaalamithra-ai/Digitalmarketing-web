@@ -7,8 +7,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Kaalamithra Digital Marketing",
-  description: "Strategy-led digital marketing for brands that value measurable growth.",
+  metadataBase: new URL("https://dm.kaalamithra-ai.com"),
 };
 
 export default function RootLayout({
