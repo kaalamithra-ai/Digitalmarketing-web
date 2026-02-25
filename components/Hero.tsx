@@ -36,7 +36,7 @@ export default function Hero() {
               AI Powered Marketing Agency
             </p>
             <h1 className="hero-float hero-animated-text shimmer mt-6 text-balance text-5xl font-extrabold leading-tight motion-reduce:animate-none md:text-6xl">
-              Smarter campaigns Faster learning Predictable growth.
+              best digital marketing agency in bangalore
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg">
               Behind every campaign is a team that values clarity, creativity, and measurable progress. We help businesses grow by understanding people first - not just platforms.

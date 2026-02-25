@@ -7,6 +7,13 @@ import type { ServiceDetail } from "@/data/serviceDetails";
 
 type Props = {
   data: ServiceDetail;
+  seo?: {
+    primaryKeyword: string;
+    secondaryKeywords: string[];
+    supportingKeywords?: string[];
+    ctaTitle: string;
+    ctaDescription: string;
+  };
 };
 
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -40,10 +47,13 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-export default function ServiceDetailTemplate({ data }: Props) {
+export default function ServiceDetailTemplate({ data, seo }: Props) {
   const glowStyle = {
     backgroundImage: `radial-gradient(circle at 0% 0%, ${data.accent.from}1f 0%, transparent 42%), radial-gradient(circle at 100% 0%, ${data.accent.to}1c 0%, transparent 40%)`,
   };
+  const primaryKeyword = seo?.primaryKeyword;
+  const secondaryKeywords = seo?.secondaryKeywords ?? [];
+  const supportingKeywords = seo?.supportingKeywords ?? [];
 
   return (
     <main className="min-h-screen bg-white py-14 text-slate-900 md:py-20" style={glowStyle}>
@@ -62,10 +72,21 @@ export default function ServiceDetailTemplate({ data }: Props) {
             </div>
             <div className="hero-float">
               <h1 className="hero-animated-text shimmer mt-5 text-4xl font-bold leading-tight motion-reduce:animate-none md:text-5xl">
-                {data.title}
+                {seo?.primaryKeyword ?? `${data.title} in Bangalore`}
               </h1>
             </div>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">{data.subtitle}</p>
+            {primaryKeyword ? (
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
+                Our team delivers {primaryKeyword} with a practical strategy focused on performance, quality leads,
+                and long-term growth outcomes.
+              </p>
+            ) : null}
+            {supportingKeywords.length > 0 ? (
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
+                Supporting focus areas include {supportingKeywords.join(", ")}.
+              </p>
+            ) : null}
           </div>
 
           <div className="xl:col-span-5">
@@ -90,7 +111,9 @@ export default function ServiceDetailTemplate({ data }: Props) {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">What You Get</h2>
+          <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">
+            {secondaryKeywords[0] ?? "What You Get"}
+          </h2>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             {data.whatYouGet.map((item) => (
               <article
@@ -105,7 +128,9 @@ export default function ServiceDetailTemplate({ data }: Props) {
         </section>
 
         <section className="mt-10 rounded-3xl border border-white/70 bg-white/75 p-6 shadow-sm backdrop-blur md:p-8">
-          <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">Our Process</h2>
+          <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">
+            {secondaryKeywords[1] ?? "Our Process"}
+          </h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {data.processSteps.map((step, index) => (
               <article key={step.title} className="group rounded-2xl border border-slate-200 bg-white/90 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md">
@@ -181,6 +206,20 @@ export default function ServiceDetailTemplate({ data }: Props) {
         </section>
 
         <div className="mt-8">
+          {seo ? (
+            <section className="mb-8 rounded-3xl border border-white/70 bg-white/75 p-6 shadow-sm backdrop-blur md:p-8">
+              <h2 className="text-2xl font-semibold text-slate-900 md:text-3xl">{seo.ctaTitle}</h2>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
+                {seo.ctaDescription}
+              </p>
+              <Link
+                href="/contact"
+                className="btn-primary cta-btn-glow mt-6 inline-flex rounded-full px-6 py-3 text-sm font-semibold text-white transition"
+              >
+                Talk to Our Team
+              </Link>
+            </section>
+          ) : null}
           <Link
             href="/services"
             className="btn-primary cta-btn-glow inline-flex rounded-full px-6 py-3 text-sm font-semibold text-white transition"

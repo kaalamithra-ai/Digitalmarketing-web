@@ -1,4 +1,17 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+const BASE_URL = "https://dm.kaalamithra-ai.com";
+
+export const metadata: Metadata = {
+  title: "AI-First Digital Marketing Agency | About Kaalamithra",
+  description:
+    "Meet Kaalamithra, an AI-powered digital marketing agency that values clarity, creativity, and measurable progress to help businesses grow.",
+  keywords: ["ai digital marketing agency", "digital marketing company in bangalore"],
+  alternates: {
+    canonical: `${BASE_URL}/about`,
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -9,7 +22,7 @@ export default function AboutPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">About Kaalamithra</p>
           <div className="hero-float">
             <h1 className="hero-animated-text shimmer mt-4 max-w-4xl text-4xl font-bold leading-tight motion-reduce:animate-none md:text-6xl">
-              AI-First Growth. Real Business Impact.
+              ai digital marketing agency
             </h1>
           </div>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
@@ -31,7 +44,7 @@ export default function AboutPage() {
           <div className="group relative rounded-3xl bg-gradient-to-r from-blue-200/60 via-indigo-200/50 to-cyan-200/60 p-[1px]">
             <article className="relative rounded-3xl border border-white/60 bg-white/80 p-8 backdrop-blur-xl shadow-[0_18px_60px_-40px_rgba(15,23,42,0.35)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_28px_80px_-50px_rgba(59,130,246,0.45)]">
               <span className="absolute right-6 top-6 h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 shadow-[0_0_0_6px_rgba(59,130,246,0.18)]" />
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Company Overview</h2>
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-900">digital marketing company in bangalore</h2>
               <p className="mt-4 leading-relaxed text-slate-600">
                 At the heart of Kaalamithra is a deep commitment to helping businesses grow through trust,
                 relationships, credibility, and intelligent execution. We combine strategic thinking with AI-powered
@@ -121,4 +134,3 @@ export default function AboutPage() {
     </main>
   );
 }
-
