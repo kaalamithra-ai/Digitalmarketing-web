@@ -48,6 +48,9 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function ServiceDetailTemplate({ data, seo }: Props) {
+  const toTitleCase = (value: string) =>
+    value.replace(/\b\w/g, (char) => char.toUpperCase());
+
   const glowStyle = {
     backgroundImage: `radial-gradient(circle at 0% 0%, ${data.accent.from}1f 0%, transparent 42%), radial-gradient(circle at 100% 0%, ${data.accent.to}1c 0%, transparent 40%)`,
   };
@@ -72,7 +75,9 @@ export default function ServiceDetailTemplate({ data, seo }: Props) {
             </div>
             <div className="hero-float">
               <h1 className="hero-animated-text shimmer mt-5 text-4xl font-bold leading-tight motion-reduce:animate-none md:text-5xl">
-                {seo?.primaryKeyword ?? `${data.title} in Bangalore`}
+                {seo?.primaryKeyword
+                  ? toTitleCase(seo.primaryKeyword)
+                  : `${data.title} in Bangalore`}
               </h1>
             </div>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">{data.subtitle}</p>
@@ -112,7 +117,7 @@ export default function ServiceDetailTemplate({ data, seo }: Props) {
 
         <section className="mt-10">
           <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">
-            {secondaryKeywords[0] ?? "What You Get"}
+            {secondaryKeywords[0] ? toTitleCase(secondaryKeywords[0]) : "What You Get"}
           </h2>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             {data.whatYouGet.map((item) => (
@@ -129,7 +134,7 @@ export default function ServiceDetailTemplate({ data, seo }: Props) {
 
         <section className="mt-10 rounded-3xl border border-white/70 bg-white/75 p-6 shadow-sm backdrop-blur md:p-8">
           <h2 className="text-2xl font-semibold transition-colors duration-300 hover:text-blue-600 md:text-3xl">
-            {secondaryKeywords[1] ?? "Our Process"}
+            {secondaryKeywords[1] ? toTitleCase(secondaryKeywords[1]) : "Our Process"}
           </h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {data.processSteps.map((step, index) => (

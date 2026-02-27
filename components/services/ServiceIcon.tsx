@@ -9,7 +9,8 @@ export type ServiceKind =
   | "mobile"
   | "email"
   | "content"
-  | "remarketing";
+  | "remarketing"
+  | "whatsapp";
 
 type ServiceIconProps = {
   kind: ServiceKind;
@@ -127,6 +128,19 @@ export default function ServiceIcon({ kind, accentColor }: ServiceIconProps) {
           <path d="m62 22 8 1-2 8" {...common} />
           <path d="M68 60a22 22 0 0 1-36 6" {...common} />
           <path d="m34 72-8-1 2-8" {...common} />
+        </>
+      ) : null}
+
+      {kind === "whatsapp" ? (
+        <>
+          <rect x="20" y="14" width="34" height="68" rx="10" {...common} />
+          <path d="M31 24h12" {...common} />
+          <circle cx="37" cy="74" r="2.1" fill={accentColor} stroke="none" />
+
+          <path d="M58 28h18a8 8 0 0 1 8 8v16a8 8 0 0 1-8 8h-7l-8 8v-8h-3a8 8 0 0 1-8-8V36a8 8 0 0 1 8-8Z" {...common} />
+          <path d="m66 50 6-6m0 0h-5m5 0v5" {...common} />
+          <path d="M65 37c1.2 1.9 2.6 3.3 4.4 4.4" {...common} />
+          <circle cx="76" cy="34" r="2.1" fill={accentColor} stroke="none" />
         </>
       ) : null}
     </svg>

@@ -104,6 +104,16 @@ const SERVICES: ServiceItem[] = [
     href: "/services/remarketing-retargeting",
     imageSrc: "/services/service-retargeting-CxO8OQYr.png",
   },
+  {
+    title: "WhatsApp Management",
+    desc: "Lead handling, automation, broadcasts and support - all in one WhatsApp system.",
+    badge: "WhatsApp Growth",
+    kind: "whatsapp",
+    gradient: "linear-gradient(135deg, #edf5ff 0%, #dfeaff 52%, #d2e4ff 100%)",
+    accentColor: "#2563eb",
+    href: "/services/whatsapp-management",
+    imageSrc: "/services/whatsapp-management.png",
+  },
 ];
 
 type ServicesGridProps = {

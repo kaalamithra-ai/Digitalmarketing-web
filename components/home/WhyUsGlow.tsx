@@ -54,7 +54,7 @@ export default function WhyUsGlow() {
         />
       ))}
 
-      <Container className="relative z-10 grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <Container className="relative z-10">
         <div>
           <div className="hero-float">
             <h2 className="hero-animated-text text-4xl font-extrabold leading-tight md:text-5xl">Why Us</h2>
@@ -77,23 +77,8 @@ export default function WhyUsGlow() {
             ))}
           </ul>
         </div>
-
-        <div className="group relative rounded-3xl bg-gradient-to-r from-blue-200/60 via-indigo-200/50 to-cyan-200/60 p-[1px]">
-          <article className="relative rounded-3xl border border-white/60 bg-white/70 p-8 backdrop-blur-xl shadow-[0_18px_60px_-40px_rgba(15,23,42,0.35)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_28px_80px_-50px_rgba(59,130,246,0.45)]">
-              <span className="pointer-events-none absolute right-6 top-6 h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 shadow-[0_0_0_6px_rgba(59,130,246,0.18)]" />
-              <span className="pointer-events-none absolute bottom-6 left-6 h-1.5 w-1.5 rounded-full bg-indigo-400/80" />
-
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-indigo-600">
-                WE START WITH CLARITY, NOT TOOLS
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
-                Before ads, SEO, or content, we study your business, audience, and competitors.
-                <br />
-                Clear strategy comes first &ndash; execution follows.
-              </p>
-            </article>
-        </div>
       </Container>
     </motion.section>
   );
 }
+

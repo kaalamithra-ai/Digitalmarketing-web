@@ -8,6 +8,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dm.kaalamithra-ai.com"),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -15,6 +18,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -35,12 +40,47 @@ export default function RootLayout({
     },
   };
 
+  const businessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MarketingAgency",
+    name: "Kaalamithra",
+    url: "https://dm.kaalamithra-ai.com",
+    logo: "https://dm.kaalamithra-ai.com/logo.png",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bangalore",
+      addressRegion: "Karnataka",
+      addressCountry: "IN",
+    },
+    sameAs: [],
+  };
+
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        {GA_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', { anonymize_ip: true });
+              `}
+            </Script>
+          </>
+        ) : null}
       </head>
       <body className="bg-soft text-ink-900 antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
+        />
         <Script id="org-schema" type="application/ld+json">
           {JSON.stringify(organizationJsonLd)}
         </Script>
