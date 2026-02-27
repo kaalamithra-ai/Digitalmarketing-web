@@ -6,25 +6,11 @@ import GlowCard from "@/components/ui/GlowCard";
 
 const caseStudies = [
   {
-    title: "SaaS Pipeline Growth",
-    metric: "+147% SQL growth",
+    title: "How SEO, GEO & AEO Transformed Indian Businesses",
+    metric: "Integrated Search Growth",
     description:
-      "Rebuilt paid search and landing page flows to improve lead quality and close velocity.",
-    href: "/case-studies/saas-pipeline-growth",
-  },
-  {
-    title: "Ecommerce Revenue Lift",
-    metric: "2.4x ROAS",
-    description:
-      "Scaled creative testing and remarketing sequences to improve purchase frequency.",
-    href: "/case-studies/ecommerce-revenue-lift",
-  },
-  {
-    title: "B2B CAC Improvement",
-    metric: "-34% CAC",
-    description:
-      "Aligned channel messaging and attribution with sales stages for higher conversion efficiency.",
-    href: "/case-studies/b2b-cac-improvement",
+      "Unified SEO, GEO, and AEO execution to improve discoverability, answer visibility, and qualified demand.",
+    href: "/case-studies/seo-geo-aeo-india",
   },
 ];
 
@@ -81,4 +67,3 @@ export default function CaseStudiesCarousel() {
     </section>
   );
 }
-

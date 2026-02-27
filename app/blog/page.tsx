@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import SEOContent from "@/components/seo/SEOContent";
 import { blogPosts } from "@/data/blogPosts";
 
 export const metadata: Metadata = {
@@ -21,6 +22,30 @@ export const metadata: Metadata = {
     description: "Explore strategy-led digital marketing insights, playbooks, and practical growth guides.",
   },
 };
+
+const seoOverviewContent = `AI Powered Digital Marketing Agency
+
+Kaalamithra is an ai powered digital marketing agency built for brands that care about real business outcomes, not vanity metrics. We design connected growth systems where SEO, paid media, content, social, email, and automation operate as one strategic engine. Instead of running isolated campaigns, we build repeatable frameworks that accelerate execution, improve decision-making, and deliver sustained business impact.
+
+Our engagement starts with strategic clarity. We define growth priorities by revenue potential, funnel stage, and conversion readiness, then align each channel to a measurable role. As an ai powered digital marketing agency, we combine senior human strategy with data intelligence so campaigns launch faster, optimize smarter, and scale with confidence.
+
+In a highly competitive digital marketing bangalore landscape, fragmented execution is often the biggest reason brands underperform. We solve that by unifying planning, execution, and optimization into one operating model. Search intent informs content direction, landing page improvements, and social communication. The result is stronger consistency, lower budget waste, and compounding growth over time.
+
+Digital Marketing Agency In Bangalore
+
+As a digital marketing agency in bangalore, we design growth strategies around local intent and high-conversion audience behavior. For regional businesses, we improve visibility for service-driven searches and build conversion-focused digital journeys. For scaling brands, we run structured acquisition and retention systems that improve lead quality and long-term ROI.
+
+When companies evaluate the best digital marketing agency in bangalore, the differentiator is not who launches faster. The differentiator is who can build a reliable growth engine. Our model is built on transparent reporting, disciplined experimentation, and weekly optimization cycles that improve outcomes consistently.
+
+A high-performing digital marketing agency in bangalore should work as a strategic partner, not a task executor. That is how we operate. We combine senior strategy, execution depth, and analytics rigor into one workflow so teams get both clarity and momentum. Every initiative is tied to measurable business goals, not disconnected tactics.
+
+For brands comparing options for best digital marketing in bangalore, compounding performance is the key metric. We build that compounding effect through clean tracking, strong creative systems, intent-led keyword planning, and conversion-focused execution. This creates sustainable growth instead of short-term spikes.
+
+Our communication model is built for leadership visibility. Weekly updates cover tactical progress and immediate opportunities. Monthly reviews focus on channel contribution, conversion quality, and growth efficiency. In digital marketing bangalore engagements, this transparency helps teams make faster, better decisions.
+
+We also prioritize message-market fit. Media buying alone cannot scale if positioning is weak. We continuously test offers, creatives, landing copy, and audience segments to strengthen conversion intent across channels. This protects budget efficiency while increasing campaign reliability.
+
+If you are looking for a dependable digital marketing agency in bangalore, Kaalamithra brings strategy, execution, and AI-enabled optimization into one performance system. From first touchpoint to repeat conversion, every part of the journey is designed to learn, improve, and scale with your business goals.`;
 
 export default function BlogPage() {
   return (
@@ -80,7 +105,7 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+      <SEOContent title="Detailed SEO & Growth Strategy" content={seoOverviewContent} />
     </main>
   );
 }
-

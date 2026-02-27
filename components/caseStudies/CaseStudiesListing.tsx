@@ -1,80 +1,83 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { CaseStudy } from "@/lib/content/caseStudies";
-import CaseStudyCard from "@/components/caseStudies/CaseStudyCard";
+import { useMemo } from "react";
+import { motion } from "framer-motion";
+import { caseStudies, CaseStudy } from "@/lib/content/caseStudies";
+import CaseStudyCard, { CaseStudyCardItem } from "@/components/caseStudies/CaseStudyCard";
 
 type CaseStudiesListingProps = {
-  items: CaseStudy[];
+  items?: CaseStudy[];
 };
 
-export default function CaseStudiesListing({ items }: CaseStudiesListingProps) {
-  const [industry, setIndustry] = useState("All");
-  const [service, setService] = useState("All");
+const executiveSummaryContent =
+  "An integrated search model combining SEO, GEO, and AEO helped Indian businesses increase discoverability, improve answer-engine visibility, and drive stronger qualified demand with measurable efficiency.";
 
-  const industries = useMemo(
-    () => ["All", ...Array.from(new Set(items.map((item) => item.industry)))],
-    [items]
-  );
-  const services = useMemo(
-    () => [
-      "All",
-      ...Array.from(new Set(items.flatMap((item) => item.services))),
-    ],
-    [items]
-  );
+const staticCaseStudies: CaseStudyCardItem[] = [
+  {
+    slug: "seo-geo-aeo-india",
+    title: "How SEO, GEO & AEO Transformed Indian Businesses",
+    tags: ["SEO", "GEO", "AEO", "AI Search"],
+    summary: executiveSummaryContent,
+  },
+];
 
-  const filtered = useMemo(() => {
-    return items.filter((item) => {
-      const industryMatch = industry === "All" || item.industry === industry;
-      const serviceMatch = service === "All" || item.services.includes(service);
-      return industryMatch && serviceMatch;
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.42, ease: "easeOut" } },
+};
+
+export default function CaseStudiesListing({ items = caseStudies }: CaseStudiesListingProps) {
+  const mappedItems = useMemo<CaseStudyCardItem[]>(() => {
+    const fromProps = items.map((item) => ({
+      slug: item.slug,
+      title: item.title,
+      summary: item.challenge,
+      tags: item.services,
+    }));
+
+    const merged = new Map<string, CaseStudyCardItem>();
+    [...staticCaseStudies, ...fromProps].forEach((item) => {
+      merged.set(item.slug, item);
     });
-  }, [industry, items, service]);
+
+    return Array.from(merged.values());
+  }, [items]);
 
   return (
-    <section className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-2">
-        <label className="grid gap-1">
-          <span className="text-sm font-medium text-slate-700">Filter by industry</span>
-          <select
-            value={industry}
-            onChange={(event) => setIndustry(event.target.value)}
-            className="rounded-md border border-neutral-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-emerald-400/40"
-          >
-            {industries.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="grid gap-1">
-          <span className="text-sm font-medium text-slate-700">Filter by service</span>
-          <select
-            value={service}
-            onChange={(event) => setService(event.target.value)}
-            className="rounded-md border border-neutral-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-emerald-400/40"
-          >
-            {services.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </label>
+    <section className="space-y-8">
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
+        Case Studies Working ✅
       </div>
 
-      {filtered.length === 0 ? (
+      {mappedItems.length === 0 ? (
         <div className="rounded-2xl border border-neutral-200 bg-white p-8 text-center text-sm text-slate-600">
-          No case studies available for selected filters.
+          No case studies available.
         </div>
       ) : (
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {filtered.map((item) => (
-            <CaseStudyCard key={item.slug} caseStudy={item} />
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3"
+        >
+          {mappedItems.map((item) => (
+            <motion.div key={item.slug} variants={itemVariants}>
+              <CaseStudyCard caseStudy={item} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
     </section>
   );

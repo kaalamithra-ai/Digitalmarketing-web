@@ -22,7 +22,7 @@ export default function AboutPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">About Kaalamithra</p>
           <div className="hero-float">
             <h1 className="hero-animated-text shimmer mt-4 max-w-4xl text-4xl font-bold leading-tight motion-reduce:animate-none md:text-6xl">
-              ai digital marketing agency
+              Ai Digital Marketing Agency
             </h1>
           </div>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">

@@ -20,16 +20,20 @@ export default function ServicesPage() {
   return (
     <main className="bg-white">
       <section className="mx-auto max-w-7xl px-6 pb-4 pt-14 md:pt-20">
-        <h1 className="text-grad-blue text-4xl font-bold md:text-5xl">
-          digital marketing services in bangalore
-        </h1>
-        <h2 className="mt-4 text-2xl font-semibold text-slate-800 md:text-3xl">
-          ai powered digital marketing services bangalore
-        </h2>
+        <div className="hero-float">
+          <h1 className="text-grad-blue hero-animated-text shimmer text-4xl font-bold md:text-5xl">
+            Digital Marketing Services
+          </h1>
+        </div>
+        <div className="hero-float">
+          <h2 className="hero-animated-text shimmer mt-4 text-2xl font-semibold text-slate-800 md:text-3xl">
+            Ai Powered Digital Marketing Services Bangalore
+          </h2>
+        </div>
         <p className="mt-4 max-w-4xl text-base leading-relaxed text-slate-600">
-          Explore strategy-first services covering SEO, social media marketing, performance marketing,
-          email marketing, content marketing, marketing automation, and remarketing with a clear
-          focus on measurable growth.
+          Explore a strategy-first portfolio spanning SEO, social media marketing, performance
+          marketing, email marketing, content marketing, marketing automation, and remarketing -
+          architected to deliver measurable outcomes and long-term, sustainable growth.
         </p>
       </section>
       <ServicesGrid />

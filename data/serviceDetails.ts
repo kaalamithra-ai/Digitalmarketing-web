@@ -11,6 +11,7 @@ export const SERVICE_DETAIL_SLUGS = [
   "email-marketing",
   "content-marketing",
   "remarketing-retargeting",
+  "whatsapp-management",
 ] as const;
 
 export type ServiceDetailSlug = (typeof SERVICE_DETAIL_SLUGS)[number];
@@ -411,6 +412,101 @@ export const SERVICE_DETAILS: Record<ServiceDetailSlug, ServiceDetail> = {
       { q: "What is the difference between remarketing and retargeting?", a: "Retargeting typically focuses on ads; remarketing can include owned channels like email and SMS." },
       { q: "How do you prevent ad fatigue?", a: "We use frequency caps, sequencing, and creative rotation logic." },
       { q: "Can retargeting improve profitability?", a: "Yes. Warm-audience conversion often delivers stronger economics than cold acquisition." },
+    ],
+  },
+  "whatsapp-management": {
+    slug: "whatsapp-management",
+    title: "WhatsApp Management",
+    subtitle:
+      "Lead handling, automation, broadcasts and support â€” all in one WhatsApp system.",
+    chips: ["WhatsApp Growth", "Automation", "Customer Support"],
+    accent: { from: "#25D366", to: "#34B7F1" },
+    illustrationKind: "whatsapp",
+    imageSrc: "/services/whatsapp-management.png",
+    whatYouGet: [
+      {
+        title: "WhatsApp Business Setup & Optimization",
+        description:
+          "Professional account configuration, catalog readiness, profile setup, and message framework alignment.",
+      },
+      {
+        title: "Lead Management & Inquiry Handling",
+        description:
+          "Structured lead capture, response workflows, and conversation handling to improve intent-to-conversion flow.",
+      },
+      {
+        title: "Automated Messaging & Chatbot Integration",
+        description:
+          "Smart auto-replies, routing logic, and chatbot journeys for faster responses and lower manual workload.",
+      },
+      {
+        title: "Broadcast & Campaign Management",
+        description:
+          "Targeted broadcast execution for offers, updates, and engagement campaigns with clean audience segmentation.",
+      },
+    ],
+    processSteps: [
+      {
+        title: "Setup",
+        description:
+          "Configure business profile, message templates, and communication standards for operational clarity.",
+      },
+      {
+        title: "Integrate",
+        description:
+          "Connect automation flows and chatbot logic to support lead stages and response speed.",
+      },
+      {
+        title: "Activate",
+        description:
+          "Launch campaigns, broadcasts, and inquiry workflows for customer acquisition and nurturing.",
+      },
+      {
+        title: "Optimize",
+        description:
+          "Continuously improve engagement quality, conversion movement, and support efficiency.",
+      },
+    ],
+    deliverables: [
+      "WhatsApp Business setup",
+      "Conversation playbook",
+      "Lead handling workflows",
+      "Automation rules",
+      "Chatbot journey map",
+      "Broadcast campaign plan",
+      "Support response matrix",
+      "Monthly performance report",
+    ],
+    kpiImpact: [
+      {
+        label: "Response Speed",
+        value: "+65%",
+        description: "Faster first-response time with structured automation and handling workflows.",
+      },
+      {
+        label: "Lead Conversion",
+        value: "+38%",
+        description: "Higher inquiry-to-qualified-lead conversion through consistent follow-up systems.",
+      },
+      {
+        label: "Repeat Sales",
+        value: "+29%",
+        description: "Improved repeat purchase activity through targeted WhatsApp engagement.",
+      },
+    ],
+    faq: [
+      {
+        q: "Can WhatsApp be used for both sales and support?",
+        a: "Yes. A structured WhatsApp management system supports lead generation, nurturing, conversions, and customer support in one flow.",
+      },
+      {
+        q: "Do you provide automation and chatbot setup?",
+        a: "Yes. We configure automation and chatbot logic for quick response, routing, and better conversation management.",
+      },
+      {
+        q: "How does WhatsApp management improve business outcomes?",
+        a: "It improves response speed, trust, engagement, follow-up quality, and repeat sales while reducing operational workload.",
+      },
     ],
   },
 };
