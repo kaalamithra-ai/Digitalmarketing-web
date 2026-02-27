@@ -34,7 +34,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.42, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.42, ease: "easeOut" as const } },
 };
 
 export default function CaseStudiesListing({ items = caseStudies }: CaseStudiesListingProps) {
