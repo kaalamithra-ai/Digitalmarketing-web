@@ -1,34 +1,30 @@
 "use client";
 
+import Image from "next/image";
 import FloatingBadge from "@/components/ui/FloatingBadge";
 
 type FloatingIllustrationProps = {
-  videoSrc?: string;
-  posterSrc?: string;
+  imageSrc?: string;
   className?: string;
 };
 
 export default function FloatingIllustration({
-  videoSrc = "/services/video.mp4",
-  posterSrc = "/images/abbu.png",
+  imageSrc = "/images/abbu.png",
   className = "",
 }: FloatingIllustrationProps) {
   return (
     <div className={`relative ${className}`}>
       <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-cyan-200/60 via-white to-indigo-200/50 blur-2xl" />
       <div className="animate-float-slow relative rounded-[1.8rem] border border-sky-100 bg-white/95 p-4 shadow-[0_40px_80px_-45px_rgba(15,23,42,0.55)] md:p-6">
-        <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white">
-          <video
-            className="h-auto w-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            poster={posterSrc}
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
+        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-slate-100 bg-white">
+          <Image
+            src={imageSrc}
+            alt="Marketing strategy illustration"
+            fill
+            sizes="(min-width: 1024px) 560px, 100vw"
+            className="object-cover"
+            priority
+          />
         </div>
       </div>
 

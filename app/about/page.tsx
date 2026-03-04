@@ -20,11 +20,9 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.14),transparent_45%),radial-gradient(circle_at_top_right,rgba(139,92,246,0.12),transparent_40%)]" />
         <div className="relative mx-auto max-w-7xl px-4 md:px-6">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">About Kaalamithra</p>
-          <div className="hero-float">
-            <h1 className="hero-animated-text shimmer mt-4 max-w-4xl text-4xl font-bold leading-tight motion-reduce:animate-none md:text-6xl">
-              Ai Digital Marketing Agency
-            </h1>
-          </div>
+          <h1 className="mt-5 max-w-5xl pb-2 bg-gradient-to-r from-[#2f4298] via-[#3f59c8] to-[#5eaaf6] bg-clip-text text-4xl font-extrabold leading-[1.08] tracking-[-0.04em] text-transparent md:text-6xl md:leading-[1.04]">
+            AI Digital Marketing Agency
+          </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
             We help modern businesses scale with AI-powered marketing systems built for clarity, speed, and measurable outcomes.
           </p>
