@@ -1,514 +1,425 @@
-import type { ServiceKind } from "@/components/services/ServiceIcon";
-
-export const SERVICE_DETAIL_SLUGS = [
-  "digital-marketing",
-  "seo",
-  "seo-optimization",
-  "performance-marketing",
-  "social-media-marketing",
-  "marketing-automation-analysis",
-  "mobile-marketing",
-  "email-marketing",
-  "content-marketing",
-  "remarketing-retargeting",
-  "whatsapp-management",
-] as const;
-
+export const SERVICE_DETAIL_SLUGS = ["digital-marketing", "seo", "performance-marketing", "social-media-marketing", "content-marketing", "email-marketing", "mobile-marketing", "remarketing-and-retargeting", "marketing-automation", "whatsapp-management"] as const;
 export type ServiceDetailSlug = (typeof SERVICE_DETAIL_SLUGS)[number];
-
+export type ServiceFaqItem = { question: string; answer: string };
+export type ServiceContentItem = { title: string; text: string };
 export type ServiceDetail = {
   slug: ServiceDetailSlug;
-  title: string;
-  subtitle: string;
-  chips: [string, string, string];
-  accent: { from: string; to: string };
-  illustrationKind: ServiceKind;
+  seo: { title: string; description: string; canonical: string; keywords: string[]; primaryKeyword: string; supportingKeywords: [string, string]; audienceKeyword: string };
+  hero: { eyebrow: string; h1: string; subtitle: string };
+  overview: { title: string; text: string };
+  pillars?: { title: string; items: ServiceContentItem[] };
+  process?: { title: string; items: ServiceContentItem[] };
+  framework?: { title: string; items: ServiceContentItem[] };
+  deliverables: { title: string; items: string[] };
+  faqs: { title: string; items: ServiceFaqItem[] };
   imageSrc: string;
-  whatYouGet: { title: string; description: string }[];
-  processSteps: { title: string; description: string }[];
-  deliverables: string[];
-  kpiImpact: { label: string; value: string; description: string }[];
-  faq: { q: string; a: string }[];
 };
 
-const seoDetail: ServiceDetail = {
-  slug: "seo",
-  title: "SEO",
-  subtitle:
-    "Improve visibility with technical SEO, intent-based content strategy, and authority signals that compound over time.",
-  chips: ["SEO Boost", "Organic Growth", "Technical + Content"],
-  accent: { from: "#16a34a", to: "#22d3ee" },
-  illustrationKind: "seo",
-  imageSrc: "/services/service-seo-B1t0muHw.png",
-  whatYouGet: [
-    { title: "Technical Foundations", description: "Crawl, indexation, speed, schema, and architecture optimization." },
-    { title: "Intent Mapping", description: "Keyword clustering mapped to business outcomes and funnel stage." },
-    { title: "Content Performance", description: "Content briefs and page updates focused on rankings and conversions." },
-    { title: "Authority Growth", description: "Internal linking and quality authority-building execution plan." },
-  ],
-  processSteps: [
-    { title: "Audit", description: "Benchmark your current SEO stack, rankings, and technical gaps." },
-    { title: "Strategy", description: "Prioritize high-impact opportunities by intent and competition." },
-    { title: "Execution", description: "Ship technical and content updates in focused delivery sprints." },
-    { title: "Optimization", description: "Track movement and refine pages for sustained growth." },
-  ],
-  deliverables: [
-    "Technical SEO audit",
-    "Keyword opportunity map",
-    "On-page optimization stack",
-    "Content brief library",
-    "Internal linking framework",
-    "Schema implementation notes",
-    "Local SEO checklist",
-    "Monthly SEO report",
-  ],
-  kpiImpact: [
-    { label: "Organic Sessions", value: "+210%", description: "Growth in high-intent organic traffic over 6 months." },
-    { label: "Top 10 Keywords", value: "+145", description: "Increase in keyword positions across priority pages." },
-    { label: "Organic Leads", value: "+96%", description: "Lift in qualified leads from organic channels." },
-  ],
-  faq: [
-    { q: "How long does SEO take to show impact?", a: "You can see technical and ranking movement in weeks, with stronger compounding impact usually visible by month 3." },
-    { q: "Do you handle both technical and content SEO?", a: "Yes. We combine technical execution with content strategy so results are scalable and measurable." },
-    { q: "How do you measure SEO ROI?", a: "We connect rankings and traffic to lead quality, conversion events, and business outcomes." },
-  ],
-};
+const BASE_URL = "https://dm.kaalamithra-ai.com";
+const make = (data: Omit<ServiceDetail, "seo"> & { seo: Omit<ServiceDetail["seo"], "canonical"> }): ServiceDetail => ({ ...data, seo: { ...data.seo, canonical: `${BASE_URL}/services/${data.slug}` } });
 
 export const SERVICE_DETAILS: Record<ServiceDetailSlug, ServiceDetail> = {
-  "digital-marketing": {
+  "digital-marketing": make({
     slug: "digital-marketing",
-    title: "Digital Marketing",
-    subtitle:
-      "AI-first marketing systems that align acquisition, conversion, and retention into a predictable growth engine.",
-    chips: ["AI Powered", "Full Funnel", "Outcome Focused"],
-    accent: { from: "#14b8a6", to: "#8b5cf6" },
-    illustrationKind: "digital",
+    seo: {
+      title: "AI-Powered Digital Marketing Agency in Bangalore | Kaalamithra",
+      description:
+        "Rated as one of the best digital marketing agencies in Bangalore. We combine creativity with technology to drive visibility, engagement, and conversions from strategy to measurable growth.",
+      keywords: [
+        "ai powered digital marketing services bangalore",
+        "digital marketing agency in bangalore",
+        "ai powered digital marketing in bangalore",
+        "digital marketing services bangalore",
+      ],
+      primaryKeyword: "AI-Powered Digital Marketing Agency in Bangalore",
+      supportingKeywords: ["AI powered digital marketing in Bangalore", "digital marketing services Bangalore"],
+      audienceKeyword: "growth-focused brands in Bangalore",
+    },
+    hero: {
+      eyebrow: "Digital Marketing",
+      h1: "AI-Powered Digital Marketing Agency in Bangalore",
+      subtitle:
+        "Clicks turn into customers. Modern marketing requires intelligence, automation, and precision. Our AI powered digital marketing in Bangalore strategies analyze user behavior, predict trends, and optimize campaigns in real time.",
+    },
+    overview: {
+      title: "Get Noticed",
+      text:
+        "We manage your entire digital journey from strategy to measurable growth driving visibility, engagement, and conversions with a smarter execution model built for brands that need reliable digital marketing services Bangalore teams can scale with.",
+    },
+    pillars: {
+      title: "What You Get",
+      items: [
+        {
+          title: "More Visibility and Brand Presence",
+          text:
+            "Increase your online exposure and make your brand harder to ignore. We improve discoverability across search, paid, and content touchpoints so your positioning stays consistent and memorable.",
+        },
+        {
+          title: "Qualified Leads",
+          text:
+            "Attract the right audience, not just more traffic. Our campaigns are designed to reach people with stronger intent, improving enquiry quality and conversion potential over time.",
+        },
+        {
+          title: "Sales-Focused Growth",
+          text:
+            "Turn marketing effort into commercial movement by aligning audience targeting, messaging, and funnel steps with the outcomes your business actually cares about.",
+        },
+        {
+          title: "Performance Analytics and Insights",
+          text:
+            "Gain clearer visibility into campaign health with reporting that helps growth-focused brands in Bangalore understand what is driving momentum and what needs attention next.",
+        },
+      ],
+    },
+    deliverables: {
+      title: "Deliverables",
+      items: [
+        "Growth strategy deck",
+        "Campaign launch framework",
+        "Audience segmentation",
+        "Creative testing matrix",
+        "Performance dashboard",
+        "Funnel optimization roadmap",
+        "Attribution insights",
+        "Monthly review report",
+      ],
+    },
+    faqs: {
+      title: "FAQ",
+      items: [
+        {
+          question: "How is Kaalamithra different from other Google marketing agencies?",
+          answer:
+            "Kaalamithra combines strategy, creativity, and data with automation-led execution. We focus on visibility, conversions, and commercial reporting so decisions are based on business outcomes rather than traffic alone.",
+        },
+        {
+          question: "How do you choose a marketing agency in Bangalore?",
+          answer:
+            "Look for strategic clarity, transparent reporting, strong execution ability, and a process that connects channel work to revenue goals. The right partner should align with your growth stage and business priorities.",
+        },
+        {
+          question: "Can you manage the entire digital journey end to end?",
+          answer:
+            "Yes. We support the full journey from strategy and campaign execution to conversion improvement, reporting, and ongoing optimisation across key digital channels.",
+        },
+      ],
+    },
     imageSrc: "/services/service-digital-marketing-DgTBPFKC.png",
-    whatYouGet: [
-      { title: "Growth Strategy", description: "Clear channel and messaging roadmap tied to business goals." },
-      { title: "Channel Execution", description: "Search, social, email, and content programs under one system." },
-      { title: "Creative Testing", description: "Structured experimentation to improve conversion performance." },
-      { title: "Performance Reporting", description: "Weekly and monthly insights with action-led recommendations." },
-    ],
-    processSteps: [
-      { title: "Discovery", description: "Understand your market, audience, and growth constraints." },
-      { title: "Planning", description: "Design the right channel mix and KPI model for your stage." },
-      { title: "Launch", description: "Activate campaigns, assets, and tracking frameworks." },
-      { title: "Scale", description: "Reallocate spend toward highest-return opportunities." },
-    ],
-    deliverables: [
-      "Growth strategy deck",
-      "Campaign launch framework",
-      "Audience segmentation",
-      "Creative testing matrix",
-      "Performance dashboard",
-      "Funnel optimization roadmap",
-      "Attribution insights",
-      "Monthly review report",
-    ],
-    kpiImpact: [
-      { label: "Pipeline Growth", value: "+180%", description: "Qualified pipeline expansion in active programs." },
-      { label: "Acquisition Cost", value: "-32%", description: "Reduction in blended customer acquisition cost." },
-      { label: "Conversion Lift", value: "+41%", description: "Higher lead-to-opportunity conversion rates." },
-    ],
-    faq: [
-      { q: "What makes your digital marketing approach different?", a: "We focus on measurable systems, not isolated campaigns, so growth becomes repeatable." },
-      { q: "Can this work with our in-house team?", a: "Yes. We can operate as an extension of your team or lead end-to-end execution." },
-      { q: "How quickly can we start?", a: "Most engagements begin with discovery and strategy alignment within the first week." },
-    ],
-  },
-  seo: seoDetail,
-  "seo-optimization": { ...seoDetail, slug: "seo-optimization" },
-  "performance-marketing": {
+  }),
+  seo: make({
+    slug: "seo",
+    seo: {
+      title: "Best SEO Agency in Bangalore | Kaalamithra",
+      description:
+        "AI-driven SEO to increase organic visibility, attract high-intent traffic, and generate qualified leads through technical SEO, on-page optimization, content strategy, and clear reporting.",
+      keywords: [
+        "best seo agency in bangalore",
+        "professional seo services in bangalore",
+        "technical seo audit",
+        "local seo checklist",
+      ],
+      primaryKeyword: "Best SEO Agency in Bangalore",
+      supportingKeywords: ["professional SEO services in Bangalore", "technical SEO audit"],
+      audienceKeyword: "local and growth-focused businesses",
+    },
+    hero: {
+      eyebrow: "SEO",
+      h1: "Best SEO Agency in Bangalore",
+      subtitle:
+        "Be found online. If your website is not ranking, you are losing business to competitors. We focus not only on rankings, but on qualified leads that are more likely to convert.",
+    },
+    overview: {
+      title: "Rank Higher. Get Found. Dominate Search.",
+      text:
+        "Our approach improves organic visibility, attracts high-intent traffic, and builds long-term authority through keyword research, on-page improvements, content planning, and a disciplined technical SEO audit process designed for sustainable inbound growth.",
+    },
+    process: {
+      title: "Our SEO Process",
+      items: [
+        {
+          title: "Understand Your Goals",
+          text: "We analyze your business, target audience, and commercial priorities so the SEO roadmap stays aligned with outcomes that matter.",
+        },
+        {
+          title: "Website Audit and Research",
+          text: "A detailed review identifies technical issues, page opportunities, keyword gaps, and areas where stronger search intent alignment is needed.",
+        },
+        {
+          title: "Strategic Implementation",
+          text: "We execute on-page updates, technical fixes, and off-page priorities through a phased plan that is easier to manage and measure.",
+        },
+        {
+          title: "Content and Link Optimization",
+          text: "Content is improved or created around search intent while authority signals and internal linking are strengthened over time.",
+        },
+        {
+          title: "Tracking and Reporting",
+          text: "Performance is monitored through clear reporting that helps your team understand visibility, traffic quality, and lead impact.",
+        },
+        {
+          title: "Ongoing Optimization",
+          text: "Professional SEO services in Bangalore work best as a continuous process, with regular refinements based on results, competition, and site evolution.",
+        },
+      ],
+    },
+    deliverables: {
+      title: "Deliverables",
+      items: [
+        "Technical SEO audit",
+        "Keyword opportunity map",
+        "On-page optimization stack",
+        "Content brief library",
+        "Internal linking framework",
+        "Schema implementation notes",
+        "Local SEO checklist",
+        "Monthly SEO report",
+      ],
+    },
+    faqs: {
+      title: "FAQ",
+      items: [
+        {
+          question: "How long does it take to see SEO results?",
+          answer:
+            "Timelines depend on competition, industry, and your website's current condition. Some businesses see early improvements within a few months, while more competitive spaces take longer. Sustainable SEO is a long-term channel.",
+        },
+        {
+          question: "Can you guarantee number one rankings on Google?",
+          answer:
+            "No credible SEO partner can guarantee number one rankings because search algorithms and competitive conditions change constantly. Good SEO focuses on sound execution, transparency, and ongoing improvement.",
+        },
+        {
+          question: "Why is SEO usually managed monthly?",
+          answer:
+            "SEO needs continuous monitoring, updates, and refinement. That is especially true for local and growth-focused businesses competing in changing search environments where content, technical health, and authority all need ongoing attention.",
+        },
+      ],
+    },
+    imageSrc: "/services/service-seo-B1t0muHw.png",
+  }),
+  "performance-marketing": make({
     slug: "performance-marketing",
-    title: "Performance Marketing",
-    subtitle:
-      "ROI-driven paid media across search and social with disciplined testing, budget control, and conversion optimization.",
-    chips: ["+240% ROAS", "Paid Media", "Real-Time Optimization"],
-    accent: { from: "#f97316", to: "#ef4444" },
-    illustrationKind: "performance",
+    seo: {
+      title: "Performance Marketing Agency in Bangalore | Kaalamithra",
+      description:
+        "ROI-driven paid campaigns across search and social that stay trackable, budget-focused, and optimized through testing and conversion improvements for quality lead growth.",
+      keywords: [
+        "performance marketing agency in bangalore",
+        "roi driven paid campaigns",
+        "conversion tracking and attribution",
+        "budget optimization roas",
+      ],
+      primaryKeyword: "Performance Marketing Agency in Bangalore",
+      supportingKeywords: ["ROI-driven paid campaigns", "conversion tracking and attribution"],
+      audienceKeyword: "ecommerce and lead generation brands",
+    },
+    hero: {
+      eyebrow: "Performance Marketing",
+      h1: "Performance Marketing Agency in Bangalore",
+      subtitle:
+        "A job well done should show up in the numbers. Our ROI-driven paid campaigns across search and social use smart testing, budget discipline, and conversion optimization to improve paid growth.",
+    },
+    overview: {
+      title: "Turn Ad Spend Into Profit",
+      text:
+        "Performance-focused marketing should produce measurable progress, not guesswork. We help brands reach the right audience, optimize budgets, improve conversion tracking and attribution, and make faster decisions based on reliable campaign signals.",
+    },
+    pillars: {
+      title: "Core Pillars",
+      items: [
+        {
+          title: "Campaign Architecture",
+          text: "We build scalable paid account structures across search, social, and display so optimisation stays controlled as spend grows.",
+        },
+        {
+          title: "Audience Strategy",
+          text: "High-intent segments are mapped by persona, behavior, and funnel stage to improve relevance and reduce wasted budget.",
+        },
+        {
+          title: "Conversion Tracking",
+          text: "Reliable event setup and attribution mapping give your team a clearer view of what is actually generating business outcomes.",
+        },
+        {
+          title: "Budget Intelligence",
+          text: "Continuous bid and spend refinement helps ecommerce and lead generation brands move budget toward stronger efficiency and healthier ROAS patterns.",
+        },
+      ],
+    },
+    deliverables: {
+      title: "Deliverables",
+      items: [
+        "Paid media plan",
+        "Campaign build sheets",
+        "Audience matrix",
+        "Creative variants",
+        "Bid strategy settings",
+        "Conversion tracking QA",
+        "ROAS analysis",
+        "Weekly optimization log",
+        "Monthly business report",
+      ],
+    },
+    faqs: {
+      title: "FAQ",
+      items: [
+        {
+          question: "How does performance marketing differ from PPC?",
+          answer:
+            "PPC is one part of performance marketing. Performance marketing is broader and can include paid search, paid social, affiliate activity, and other channels where spend is tied to measurable business actions.",
+        },
+        {
+          question: "How is performance marketing different from traditional marketing?",
+          answer:
+            "Traditional media can build awareness, but performance marketing gives you clearer measurement, faster optimisation cycles, and more control over spend because decisions are guided by trackable actions.",
+        },
+        {
+          question: "Can campaigns be paused or modified?",
+          answer:
+            "Yes. Campaigns can be paused, adjusted, scaled, or restructured based on performance data, business priorities, budget changes, or conversion quality concerns.",
+        },
+      ],
+    },
     imageSrc: "/services/service-performance-ktslITiU.png",
-    whatYouGet: [
-      { title: "Campaign Architecture", description: "Scalable paid setup for search, social, and display." },
-      { title: "Audience Strategy", description: "High-intent segments by persona, behavior, and funnel stage." },
-      { title: "Conversion Tracking", description: "Reliable event tracking and attribution mapping." },
-      { title: "Budget Intelligence", description: "Continuous bid and spend optimization for stronger ROAS." },
-    ],
-    processSteps: [
-      { title: "Plan", description: "Set goals, budgets, and platform strategy with KPI targets." },
-      { title: "Build", description: "Launch accounts, audiences, creative sets, and tracking." },
-      { title: "Test", description: "Run controlled tests on offers, audiences, and creatives." },
-      { title: "Scale", description: "Expand winners and reduce waste through weekly optimization." },
-    ],
-    deliverables: [
-      "Paid media plan",
-      "Campaign build sheets",
-      "Audience matrix",
-      "Creative variants",
-      "Bid strategy settings",
-      "Conversion tracking QA",
-      "ROAS analysis",
-      "Weekly optimization log",
-      "Monthly business report",
-    ],
-    kpiImpact: [
-      { label: "ROAS", value: "4.6x", description: "Average return achieved across mature campaign sets." },
-      { label: "CPA Reduction", value: "-38%", description: "Cost efficiency improvements through test iteration." },
-      { label: "Lead Volume", value: "+123%", description: "Scalable increase in qualified lead output." },
-    ],
-    faq: [
-      { q: "Which platforms do you manage?", a: "Google, Meta, LinkedIn, and additional channels based on fit and performance." },
-      { q: "How often do you optimize campaigns?", a: "Campaigns are monitored daily with structured weekly optimization cycles." },
-      { q: "Can you improve underperforming ad accounts?", a: "Yes. We diagnose structural issues and rebuild for predictable performance." },
-    ],
-  },
-  "social-media-marketing": {
+  }),
+  "social-media-marketing": make({
     slug: "social-media-marketing",
-    title: "Social Media Marketing",
-    subtitle:
-      "Brand and demand growth through strategic content, platform-native creative, and high-quality audience engagement.",
-    chips: ["+3.2M Reach", "Creative Engine", "Community Growth"],
-    accent: { from: "#6366f1", to: "#22c55e" },
-    illustrationKind: "social",
+    seo: {
+      title: "Social Media Marketing Agency in Bangalore | Kaalamithra",
+      description:
+        "Strategic content calendars, engaging creatives, short-form video strategies, and engagement systems that build brand trust and drive measurable business impact.",
+      keywords: [
+        "social media marketing agency in bangalore",
+        "social media content calendar",
+        "short form video strategy",
+        "social media engagement systems",
+      ],
+      primaryKeyword: "Social Media Marketing Agency in Bangalore",
+      supportingKeywords: ["social media content calendar", "short form video strategy"],
+      audienceKeyword: "founder-led and brand-building businesses",
+    },
+    hero: {
+      eyebrow: "Social Media Marketing",
+      h1: "Social Media Marketing Agency in Bangalore",
+      subtitle:
+        "Beyond the clutter, social needs to build brand, community, and trust. We create strategic content calendars, engaging creatives, short-form video strategy systems, and engagement workflows that help brands stay relevant.",
+    },
+    overview: {
+      title: "Social That Drives Business Impact",
+      text:
+        "Your audience does not want constant noise. They want relevance, consistency, and connection. Our approach blends creativity with analytics so your presence supports stronger engagement, better recall, and more meaningful business outcomes.",
+    },
+    framework: {
+      title: "Scale Your Social Media in 3 Steps",
+      items: [
+        {
+          title: "Goal Setting",
+          text: "We define whether the focus is brand awareness, engagement, authority, or qualified leads so content decisions stay measurable.",
+        },
+        {
+          title: "Target Audience",
+          text: "Audience behavior, preferred platforms, and content preferences shape the social media content calendar and publishing priorities.",
+        },
+        {
+          title: "Branding and Engagement",
+          text: "A consistent brand voice, community response structure, and strong creative rhythm help founder-led and brand-building businesses earn trust over time.",
+        },
+      ],
+    },
+    deliverables: {
+      title: "Deliverables",
+      items: [
+        "Social growth blueprint",
+        "Monthly content calendar",
+        "Creative concept board",
+        "Caption bank",
+        "Community response matrix",
+        "Platform KPI dashboard",
+        "Engagement review",
+        "Monthly insights deck",
+      ],
+    },
+    faqs: {
+      title: "FAQ",
+      items: [
+        {
+          question: "Why should I hire a social media marketing company in Bangalore?",
+          answer:
+            "A professional team helps build awareness, engage the right audience, and support qualified demand through better planning, consistent content quality, and channel-specific execution.",
+        },
+        {
+          question: "What makes an agency different from freelancers?",
+          answer:
+            "An agency usually brings strategists, designers, content planners, and paid specialists together, which makes execution more consistent and easier to scale.",
+        },
+        {
+          question: "Do I need daily posting?",
+          answer:
+            "Not always. Consistency and quality matter more than posting frequency. The right cadence supported by social media engagement systems usually performs better than random daily content.",
+        },
+      ],
+    },
     imageSrc: "/services/service-social-media-P4dXjYOT.png",
-    whatYouGet: [
-      { title: "Platform Strategy", description: "Role clarity for Instagram, LinkedIn, Facebook, and X." },
-      { title: "Content Systems", description: "Always-on publishing cadence with clear content pillars." },
-      { title: "Creative Direction", description: "Platform-first visuals and messaging for stronger engagement." },
-      { title: "Growth Reporting", description: "Performance visibility tied to audience and lead outcomes." },
-    ],
-    processSteps: [
-      { title: "Position", description: "Define voice, themes, and conversion goals." },
-      { title: "Produce", description: "Create monthly content assets and campaign creatives." },
-      { title: "Publish", description: "Distribute with timing and format precision." },
-      { title: "Improve", description: "Optimize by engagement and assisted-conversion data." },
-    ],
-    deliverables: [
-      "Social growth blueprint",
-      "Monthly content calendar",
-      "Creative concept board",
-      "Caption bank",
-      "Community response matrix",
-      "Platform KPI dashboard",
-      "Engagement review",
-      "Monthly insights deck",
-    ],
-    kpiImpact: [
-      { label: "Monthly Reach", value: "+3.2M", description: "Sustained visibility growth across priority platforms." },
-      { label: "Engagement Rate", value: "+67%", description: "Improvement in meaningful audience interactions." },
-      { label: "Social Leads", value: "+54%", description: "Lift in lead flow from social programs." },
-    ],
-    faq: [
-      { q: "Do you also create content?", a: "Yes. Strategy, creative production, publishing, and optimization are included." },
-      { q: "Can social drive qualified leads?", a: "Yes. With the right offer and funnel integration, social can be a consistent lead source." },
-      { q: "Do you manage paid social too?", a: "Yes. Organic and paid social can run as one coordinated growth system." },
-    ],
-  },
-  "marketing-automation-analysis": {
-    slug: "marketing-automation-analysis",
-    title: "Marketing automation & analysis",
-    subtitle:
-      "Workflow automation and performance analytics that improve speed, reduce manual effort, and strengthen decision-making.",
-    chips: ["AI Workflow", "Automation", "Data Intelligence"],
-    accent: { from: "#3b82f6", to: "#8b5cf6" },
-    illustrationKind: "automation",
-    imageSrc: "/services/service-automation-D9GQDyKA.png",
-    whatYouGet: [
-      { title: "Workflow Mapping", description: "End-to-end journey automation design based on lifecycle events." },
-      { title: "Lead Qualification", description: "Scoring and prioritization to improve sales response quality." },
-      { title: "Attribution Layer", description: "Track channel contribution with cleaner decision signals." },
-      { title: "Optimization Loops", description: "Ongoing analysis with actionable weekly improvements." },
-    ],
-    processSteps: [
-      { title: "Map", description: "Identify repetitive tasks and key automation triggers." },
-      { title: "Build", description: "Configure systems, workflows, and data sync layers." },
-      { title: "Measure", description: "Monitor performance and bottleneck trends." },
-      { title: "Optimize", description: "Improve workflows using behavioral and KPI insights." },
-    ],
-    deliverables: [
-      "Automation architecture",
-      "Journey workflow docs",
-      "Lead scoring model",
-      "Attribution dashboard",
-      "Alerting setup",
-      "Performance diagnostics",
-      "Optimization backlog",
-      "Monthly insights summary",
-    ],
-    kpiImpact: [
-      { label: "Time Saved", value: "29 hrs/wk", description: "Operational time reduced via automated workflows." },
-      { label: "Response Speed", value: "-58%", description: "Faster lead follow-up with better qualification logic." },
-      { label: "Retention Lift", value: "+24%", description: "Improved retention through smarter journey orchestration." },
-    ],
-    faq: [
-      { q: "Will automation replace our team?", a: "No. It removes repetitive tasks so your team can focus on high-value work." },
-      { q: "Can this work with our current tools?", a: "Yes. We design around your existing CRM and marketing stack." },
-      { q: "How frequently do you review analytics?", a: "Performance reviews are ongoing with structured weekly and monthly reporting." },
-    ],
-  },
-  "mobile-marketing": {
-    slug: "mobile-marketing",
-    title: "Mobile Marketing",
-    subtitle:
-      "Mobile-first campaigns built for high-intent engagement across app, web, push, and SMS touchpoints.",
-    chips: ["Mobile First", "Real-Time Reach", "Behavior Driven"],
-    accent: { from: "#0ea5e9", to: "#8b5cf6" },
-    illustrationKind: "mobile",
-    imageSrc: "/services/service-mobile-BTouDMEG.png",
-    whatYouGet: [
-      { title: "Mobile Segmentation", description: "User groups by behavior, location, and intent." },
-      { title: "Message Strategy", description: "Channel-ready messaging for push, SMS, and in-app." },
-      { title: "Mobile UX Inputs", description: "Landing and flow recommendations for stronger conversion." },
-      { title: "Cross-Device Insights", description: "Attribution visibility across user touchpoints." },
-    ],
-    processSteps: [
-      { title: "Research", description: "Understand mobile behavior and drop-off patterns." },
-      { title: "Design", description: "Create channel-specific campaigns and messaging." },
-      { title: "Launch", description: "Activate mobile campaigns with tracking in place." },
-      { title: "Optimize", description: "Improve outcomes through iterative audience and creative tuning." },
-    ],
-    deliverables: [
-      "Mobile strategy doc",
-      "Audience segments",
-      "Messaging flows",
-      "Push/SMS campaign setup",
-      "Mobile creative assets",
-      "UX improvement checklist",
-      "Attribution report",
-      "Optimization summary",
-    ],
-    kpiImpact: [
-      { label: "Mobile CTR", value: "+49%", description: "Improvement in mobile click-through rates." },
-      { label: "Mobile Conversion", value: "+37%", description: "Increase in conversion from mobile traffic." },
-      { label: "Re-engagement", value: "+42%", description: "Higher repeat activity through targeted follow-ups." },
-    ],
-    faq: [
-      { q: "Is mobile marketing only for apps?", a: "No. It includes mobile web, messaging, and paid campaigns." },
-      { q: "Can you run location-based campaigns?", a: "Yes. We use geolocation logic where it supports conversion outcomes." },
-      { q: "How do you improve mobile funnel quality?", a: "By aligning message, landing speed, and intent-based targeting." },
-    ],
-  },
-  "email-marketing": {
-    slug: "email-marketing",
-    title: "Email Marketing",
-    subtitle:
-      "Lifecycle email programs that improve lead nurture, retention, and revenue with personalized sequencing.",
-    chips: ["High CTR", "Lifecycle Journeys", "Retention Focused"],
-    accent: { from: "#16a34a", to: "#f97316" },
-    illustrationKind: "email",
-    imageSrc: "/services/service-email-ZNd5oL_I.png",
-    whatYouGet: [
-      { title: "Journey Design", description: "Welcome, nurture, conversion, and win-back email flows." },
-      { title: "Segmentation Logic", description: "Behavioral and lifecycle segmentation for message relevance." },
-      { title: "Template System", description: "Readable, conversion-focused templates and copy." },
-      { title: "Deliverability Support", description: "Inbox placement monitoring and hygiene controls." },
-    ],
-    processSteps: [
-      { title: "Segment", description: "Define audience groups with clear engagement intent." },
-      { title: "Create", description: "Write and design campaigns aligned to user stage." },
-      { title: "Automate", description: "Deploy trigger-based journeys and testing controls." },
-      { title: "Refine", description: "Improve clicks, conversions, and retention over time." },
-    ],
-    deliverables: [
-      "Email lifecycle map",
-      "Audience segmentation matrix",
-      "Template kit",
-      "Campaign copy bank",
-      "Automation setup",
-      "Deliverability checklist",
-      "A/B test log",
-      "Performance report",
-    ],
-    kpiImpact: [
-      { label: "Email Revenue", value: "+68%", description: "Increase in revenue from lifecycle email." },
-      { label: "Click Rate", value: "+44%", description: "Higher click-through across priority sequences." },
-      { label: "Unsubscribe Rate", value: "-26%", description: "Reduced churn through better targeting and timing." },
-    ],
-    faq: [
-      { q: "Is email still effective for growth?", a: "Yes. Email remains one of the strongest ROI channels when mapped to lifecycle behavior." },
-      { q: "Do you handle copy and design?", a: "Yes. We provide strategy, copywriting, design, and optimization." },
-      { q: "Can email integrate with paid campaigns?", a: "Yes. We align email flows with broader demand and remarketing efforts." },
-    ],
-  },
-  "content-marketing": {
+  }),
+  "content-marketing": make({
     slug: "content-marketing",
-    title: "Content Marketing",
-    subtitle:
-      "Strategic content systems designed to attract qualified audiences, build authority, and drive compounding demand.",
-    chips: ["Content Engine", "SEO Aligned", "Demand Building"],
-    accent: { from: "#8b5cf6", to: "#14b8a6" },
-    illustrationKind: "content",
+    seo: { title: "Content Marketing Agency in Bangalore | Kaalamithra", description: "Content marketing agency in Bangalore for editorial strategy, SEO-aligned content, and conversion-aware demand generation assets.", keywords: ["content marketing agency in bangalore", "content marketing services in bangalore", "seo content writing bangalore", "content strategy agency bangalore", "blog writing services bangalore"], primaryKeyword: "Content Marketing Agency in Bangalore", supportingKeywords: ["content marketing services in Bangalore", "SEO content writing Bangalore"], audienceKeyword: "B2B companies and expertise-led brands" },
+    hero: { eyebrow: "Authority Building Through Useful Content", h1: "Content Marketing Agency in Bangalore", subtitle: "Content Marketing Agency in Bangalore gives your brand a clearer editorial system for attracting demand, improving trust, and supporting qualified conversions." },
+    overview: { title: "Build a content engine that compounds", text: "Great content should do more than fill a calendar. It should answer buyer questions, support search demand, and strengthen sales conversations. Our content marketing services in Bangalore are planned to improve discoverability and commercial usefulness at the same time." },
+    framework: { title: "Our content framework", items: [{ title: "Research", text: "We identify customer questions, search intent, and funnel gaps that deserve content investment." }, { title: "Production", text: "We create briefs and assets with structure, clarity, and conversion logic built in from the start." }, { title: "Refinement", text: "Winning topics are updated, expanded, and reused across channels to improve long-term return." }] },
+    deliverables: { title: "Typical deliverables", items: ["Editorial strategy document", "Topic cluster planning", "SEO content briefs", "Blog and landing page copy", "Content refresh recommendations", "Repurposing workflow", "CTA and conversion guidance", "Monthly performance review"] },
+    faqs: { title: "Content marketing FAQs", items: [{ question: "Do you create content only for search traffic?", answer: "No. We balance search intent with buyer education so content can support discovery, trust, and conversion support together." }, { question: "Can you help with long-form SEO content?", answer: "Yes. SEO content writing Bangalore is a major part of the engagement, especially when topical depth is important for visibility." }, { question: "Who benefits most from this service?", answer: "It is ideal for B2B companies and expertise-led brands that want a repeatable content engine instead of one-off publishing." }] },
     imageSrc: "/services/service-content-QcgO-PdB.png",
-    whatYouGet: [
-      { title: "Editorial Strategy", description: "Topic clusters aligned to audience intent and funnel goals." },
-      { title: "Asset Production", description: "High-value blogs, pages, and supporting content formats." },
-      { title: "Distribution Layer", description: "Repurposing and channel distribution for stronger reach." },
-      { title: "Performance Insights", description: "Topic-level reporting to guide future content investments." },
-    ],
-    processSteps: [
-      { title: "Research", description: "Identify demand gaps and topic opportunities." },
-      { title: "Plan", description: "Build a practical editorial pipeline." },
-      { title: "Publish", description: "Launch optimized assets in a consistent cadence." },
-      { title: "Optimize", description: "Refine by performance and conversion signals." },
-    ],
-    deliverables: [
-      "Content roadmap",
-      "Editorial calendar",
-      "SEO briefs",
-      "Long-form assets",
-      "Website copy updates",
-      "Social repurposing kit",
-      "Topic performance dashboard",
-      "Monthly content report",
-    ],
-    kpiImpact: [
-      { label: "Qualified Traffic", value: "+132%", description: "Growth in intent-led traffic from content channels." },
-      { label: "Engagement Time", value: "+39%", description: "Higher average engagement on key pages." },
-      { label: "Assisted Leads", value: "+58%", description: "Increase in leads influenced by content touchpoints." },
-    ],
-    faq: [
-      { q: "How does content support revenue?", a: "We map content to funnel stages and track its influence on lead and conversion outcomes." },
-      { q: "Do you create strategy and execution both?", a: "Yes. We handle planning, production, distribution, and optimization." },
-      { q: "Will content also improve SEO?", a: "Yes. Our content strategy is tightly integrated with SEO intent and structure." },
-    ],
-  },
-  "remarketing-retargeting": {
-    slug: "remarketing-retargeting",
-    title: "Remarketing and Retargeting",
-    subtitle:
-      "Recover missed demand with personalized re-engagement across paid and owned channels to improve conversion efficiency.",
-    chips: ["Retarget Pro", "Conversion Recovery", "Cross-Channel"],
-    accent: { from: "#f97316", to: "#0ea5e9" },
-    illustrationKind: "remarketing",
+  }),
+  "email-marketing": make({
+    slug: "email-marketing",
+    seo: { title: "Email Marketing Agency in Bangalore | Kaalamithra", description: "Email marketing agency in Bangalore for lifecycle planning, segmentation, automation, and retention-focused campaign execution.", keywords: ["email marketing agency in bangalore", "email marketing services in bangalore", "email automation services bangalore", "retention marketing agency bangalore", "email campaign management bangalore"], primaryKeyword: "Email Marketing Agency in Bangalore", supportingKeywords: ["email marketing services in Bangalore", "email automation services Bangalore"], audienceKeyword: "ecommerce, SaaS, and repeat-purchase businesses" },
+    hero: { eyebrow: "Lifecycle Messaging That Drives Retention", h1: "Email Marketing Agency in Bangalore", subtitle: "Email Marketing Agency in Bangalore helps businesses turn lists into high-value lifecycle journeys with better segmentation, timing, and conversion focus." },
+    overview: { title: "From isolated campaigns to lifecycle revenue support", text: "Email performs best when it is tied to real customer moments. Our email marketing services in Bangalore focus on welcome flows, nurture sequences, and retention opportunities so the channel works as a dependable growth asset rather than a periodic send tool." },
+    process: { title: "How email programs are built", items: [{ title: "Journey Mapping", text: "We identify which lifecycle moments deserve nurture, recovery, retention, or reactivation messaging." }, { title: "Segmentation Logic", text: "Lists and triggers are structured by behavior, source, and intent so relevance stays high." }, { title: "Campaign Production", text: "Copy, design, and CTA logic are created with readability and action in mind." }, { title: "Testing and Tuning", text: "Send times, subject lines, and sequence performance are reviewed for ongoing improvement." }] },
+    deliverables: { title: "Typical deliverables", items: ["Lifecycle email map", "Segmentation framework", "Automation sequence planning", "Campaign copy development", "Template recommendations", "Deliverability checklist", "A/B testing roadmap", "Monthly email performance report"] },
+    faqs: { title: "Email marketing FAQs", items: [{ question: "Do you handle one-off campaigns and automation together?", answer: "Yes. We build both broadcast campaigns and lifecycle sequences so the channel works as one coordinated system." }, { question: "Can you support retention improvements as well as lead nurturing?", answer: "Yes. Email automation services Bangalore are especially useful when you need better follow-up, repeat purchase prompts, and reactivation planning." }, { question: "Who is this most useful for?", answer: "It works especially well for ecommerce, SaaS, and repeat-purchase businesses that want stronger lifecycle revenue support." }] },
+    imageSrc: "/services/service-email-ZNd5oL_I.png",
+  }),
+  "mobile-marketing": make({
+    slug: "mobile-marketing",
+    seo: { title: "Mobile Marketing Services in Bangalore | Kaalamithra", description: "Mobile marketing services in Bangalore for SMS, push, app and mobile-web acquisition journeys designed for faster action.", keywords: ["mobile marketing services in bangalore", "mobile marketing agency in bangalore", "sms marketing services bangalore", "push notification marketing bangalore", "mobile advertising agency bangalore"], primaryKeyword: "Mobile Marketing Services in Bangalore", supportingKeywords: ["SMS marketing services Bangalore", "push notification marketing Bangalore"], audienceKeyword: "app-first brands and mobile-heavy businesses" },
+    hero: { eyebrow: "Mobile-First Growth Journeys", h1: "Mobile Marketing Services in Bangalore", subtitle: "Mobile Marketing Services in Bangalore help brands engage faster-moving users through better timing, segmentation, and mobile-first conversion design." },
+    overview: { title: "Meet users where attention is shortest and intent is immediate", text: "Mobile is often the first and most frequent touchpoint in the customer journey. We plan mobile marketing agency Bangalore businesses can use to connect message timing, device behavior, and action-oriented journeys without creating fragmented user experiences." },
+    framework: { title: "Our mobile marketing framework", items: [{ title: "Behavior Signals", text: "We analyze device habits, recency, and context to determine which mobile moments deserve intervention." }, { title: "Channel Fit", text: "SMS, app messaging, push, and mobile landing experiences are aligned with the user action you need." }, { title: "Journey Improvement", text: "We reduce friction across mobile forms, click paths, and message continuity to support conversion." }] },
+    deliverables: { title: "Typical deliverables", items: ["Mobile channel strategy", "Audience segmentation plan", "SMS and push flows", "Message timing guidance", "Mobile landing page inputs", "Cross-device tracking review", "Campaign testing priorities", "Monthly mobile performance review"] },
+    faqs: { title: "Mobile marketing FAQs", items: [{ question: "Is mobile marketing only relevant for app businesses?", answer: "No. It also supports mobile web, click-to-call campaigns, SMS programs, and other phone-first user journeys." }, { question: "Can you handle SMS and push together?", answer: "Yes. SMS marketing services Bangalore and push planning work best when timing and message priority are coordinated instead of duplicated." }, { question: "Who benefits the most from this service?", answer: "It is especially useful for app-first brands and mobile-heavy businesses where a large share of attention and action happens on phones." }] },
+    imageSrc: "/services/service-mobile-BTouDMEG.png",
+  }),
+  "remarketing-and-retargeting": make({
+    slug: "remarketing-and-retargeting",
+    seo: { title: "Remarketing and Retargeting Services in Bangalore | Kaalamithra", description: "Remarketing and retargeting services in Bangalore for warm-audience recovery, stronger follow-up, and conversion-focused re-engagement.", keywords: ["remarketing and retargeting services in bangalore", "remarketing services bangalore", "retargeting ads agency bangalore", "conversion recovery campaigns bangalore", "retargeting services in bangalore"], primaryKeyword: "Remarketing and Retargeting Services in Bangalore", supportingKeywords: ["remarketing services Bangalore", "retargeting ads agency Bangalore"], audienceKeyword: "ecommerce stores and high-intent lead funnels" },
+    hero: { eyebrow: "Recover More Warm Demand", h1: "Remarketing and Retargeting Services in Bangalore", subtitle: "Remarketing and Retargeting Services in Bangalore help brands re-engage visitors and leads with more relevant timing, creative, and conversion recovery logic." },
+    overview: { title: "Stay visible after the first click without wasting spend", text: "Not every buyer converts on the first visit. We build remarketing services Bangalore companies can use to reconnect with high-intent audiences through better segmentation, stronger offer sequencing, and more controlled frequency across platforms." },
+    pillars: { title: "What improves recovery performance", items: [{ title: "Audience Grouping", text: "We split users by behavior, recency, and value so follow-up feels relevant to where they dropped off." }, { title: "Creative Sequencing", text: "Messaging evolves from reminder to proof to offer instead of repeating the same ad too often." }, { title: "Frequency Controls", text: "We protect efficiency with exclusions, timing windows, and better pacing." }, { title: "Cross-Channel Coordination", text: "Remarketing can be aligned with email or CRM follow-up to create a fuller recovery journey." }] },
+    deliverables: { title: "Typical deliverables", items: ["Audience recovery map", "Event and audience validation", "Segment prioritisation plan", "Creative sequence recommendations", "Offer and reminder logic", "Frequency control settings", "Performance reporting dashboard", "Monthly recovery review"] },
+    faqs: { title: "Remarketing FAQs", items: [{ question: "What is the difference between remarketing and retargeting?", answer: "Retargeting usually refers to paid ad follow-up, while remarketing can also include owned channels such as email and lifecycle messaging." }, { question: "Can you support conversion recovery outside of ecommerce?", answer: "Yes. Retargeting ads agency Bangalore work is also valuable for lead generation when prospects need multiple touches before converting." }, { question: "Who gets the most value from this?", answer: "It is a strong fit for ecommerce stores and high-intent lead funnels where first-touch traffic is meaningful but not immediately converting." }] },
     imageSrc: "/services/service-retargeting-CxO8OQYr.png",
-    whatYouGet: [
-      { title: "Audience Recovery", description: "Segments based on behavior, recency, and buying intent." },
-      { title: "Personalized Sequences", description: "Creative and messaging tuned to drop-off stage." },
-      { title: "Channel Orchestration", description: "Retargeting across search, social, and email touchpoints." },
-      { title: "Frequency Controls", description: "Cadence and fatigue management to protect efficiency." },
-    ],
-    processSteps: [
-      { title: "Track", description: "Validate events and audience creation rules." },
-      { title: "Segment", description: "Build intent-based groups for tailored messaging." },
-      { title: "Activate", description: "Launch multi-channel retargeting campaigns." },
-      { title: "Recover", description: "Optimize for conversion recapture and ROAS lift." },
-    ],
-    deliverables: [
-      "Retargeting strategy map",
-      "Audience matrix",
-      "Creative sequence plan",
-      "Frequency guardrails",
-      "Cross-channel campaign setup",
-      "Performance dashboard",
-      "Incrementality review",
-      "Monthly conversion recovery report",
-    ],
-    kpiImpact: [
-      { label: "Recovered Conversions", value: "+61%", description: "Lift in recovered conversions from warm audiences." },
-      { label: "Return ROAS", value: "5.2x", description: "Average return from retargeting campaign groups." },
-      { label: "Cart Recovery", value: "+47%", description: "Higher checkout completion from recovery journeys." },
-    ],
-    faq: [
-      { q: "What is the difference between remarketing and retargeting?", a: "Retargeting typically focuses on ads; remarketing can include owned channels like email and SMS." },
-      { q: "How do you prevent ad fatigue?", a: "We use frequency caps, sequencing, and creative rotation logic." },
-      { q: "Can retargeting improve profitability?", a: "Yes. Warm-audience conversion often delivers stronger economics than cold acquisition." },
-    ],
-  },
-  "whatsapp-management": {
+  }),
+  "marketing-automation": make({
+    slug: "marketing-automation",
+    seo: { title: "Marketing Automation Services in Bangalore | Kaalamithra", description: "Marketing automation services in Bangalore for lead routing, workflow design, lifecycle triggers, and cleaner reporting systems.", keywords: ["marketing automation services in bangalore", "marketing automation agency in bangalore", "crm automation bangalore", "lead automation services bangalore", "marketing workflow setup bangalore"], primaryKeyword: "Marketing Automation Services in Bangalore", supportingKeywords: ["marketing automation agency in Bangalore", "CRM automation Bangalore"], audienceKeyword: "sales-led teams and service businesses" },
+    hero: { eyebrow: "Smarter Workflows, Faster Follow-Up", h1: "Marketing Automation Services in Bangalore", subtitle: "Marketing Automation Services in Bangalore help teams reduce manual work, improve lead handling, and build cleaner lifecycle execution across the funnel." },
+    overview: { title: "Build workflows that support speed, consistency, and visibility", text: "Automation works best when it solves real operational bottlenecks. We design systems for routing, alerts, handoffs, and reporting so a marketing automation agency in Bangalore is not just adding tools, but making your process more dependable." },
+    process: { title: "How automation engagements work", items: [{ title: "Audit the Workflow", text: "We review forms, funnels, handoffs, and reporting gaps to find where manual effort is slowing progress." }, { title: "Design the Logic", text: "Triggers, routing paths, alerts, and CRM automation Bangalore rules are mapped around the real sales process." }, { title: "Implement the System", text: "We set up automation carefully so data stays usable and fallbacks are clear." }, { title: "Refine Over Time", text: "Sequences and routing rules are adjusted as the funnel evolves and operational needs change." }] },
+    deliverables: { title: "Typical deliverables", items: ["Workflow audit document", "Lead routing logic", "Lifecycle trigger map", "CRM field cleanup plan", "Alert and notification setup", "Automation QA checklist", "Reporting visibility improvements", "Monthly optimisation review"] },
+    faqs: { title: "Marketing automation FAQs", items: [{ question: "Can you work with our current CRM stack?", answer: "Yes. We usually improve the current setup first and only recommend major changes when the existing stack blocks execution or reporting." }, { question: "Will automation make our process feel robotic?", answer: "No. Good automation removes repetitive steps while preserving the points where human context and sales judgment matter most." }, { question: "Who is this most useful for?", answer: "It works especially well for sales-led teams and service businesses that need faster response times and better process visibility." }] },
+    imageSrc: "/services/service-automation-D9GQDyKA.png",
+  }),
+  "whatsapp-management": make({
     slug: "whatsapp-management",
-    title: "WhatsApp Management",
-    subtitle:
-      "Lead handling, automation, broadcasts and support â€” all in one WhatsApp system.",
-    chips: ["WhatsApp Growth", "Automation", "Customer Support"],
-    accent: { from: "#25D366", to: "#34B7F1" },
-    illustrationKind: "whatsapp",
+    seo: { title: "WhatsApp Management Services in Bangalore | Kaalamithra", description: "WhatsApp management services in Bangalore for lead handling, automation, broadcast planning, and customer response workflows.", keywords: ["whatsapp management services in bangalore", "whatsapp marketing agency bangalore", "whatsapp automation services bangalore", "whatsapp lead management bangalore", "whatsapp business setup bangalore"], primaryKeyword: "WhatsApp Management Services in Bangalore", supportingKeywords: ["WhatsApp marketing agency Bangalore", "WhatsApp automation services Bangalore"], audienceKeyword: "local service brands and conversion-focused teams" },
+    hero: { eyebrow: "Conversational Growth With Better Control", h1: "WhatsApp Management Services in Bangalore", subtitle: "WhatsApp Management Services in Bangalore help businesses turn scattered conversations into a more organised sales, support, and follow-up channel." },
+    overview: { title: "Create a WhatsApp workflow that scales with the business", text: "WhatsApp can become a high-value conversion touchpoint when response speed, routing logic, and campaign usage are planned well. We act as a WhatsApp marketing agency Bangalore teams can use to make the channel more structured, faster, and easier to manage." },
+    pillars: { title: "What we improve inside the channel", items: [{ title: "Business Setup", text: "We organise templates, profile details, labels, and response standards so operations start from a cleaner foundation." }, { title: "Lead Routing", text: "New conversations are segmented and directed to the right next step instead of being handled inconsistently." }, { title: "Automation Layers", text: "WhatsApp automation services Bangalore are applied where they reduce delay without damaging the user experience." }, { title: "Campaign Coordination", text: "Broadcasts, reminders, and nurture sequences are structured to support communication quality and conversion flow." }] },
+    deliverables: { title: "Typical deliverables", items: ["WhatsApp channel audit", "Business profile optimisation", "Template and response setup", "Lead routing workflow", "Automation trigger planning", "Broadcast campaign guide", "Conversation handling matrix", "Monthly channel review"] },
+    faqs: { title: "WhatsApp management FAQs", items: [{ question: "Can WhatsApp support both sales and support workflows?", answer: "Yes. It can be structured to handle enquiry capture, nurturing, reminders, updates, and support interactions in one channel." }, { question: "Do you also help with automation and chatbot setup?", answer: "Yes. We use automation where it improves speed and consistency, while keeping escalation paths clear for human conversations." }, { question: "Who gets the most value from this service?", answer: "It is particularly useful for local service brands and conversion-focused teams that rely on fast response and strong follow-up quality." }] },
     imageSrc: "/services/whatsapp-management.png",
-    whatYouGet: [
-      {
-        title: "WhatsApp Business Setup & Optimization",
-        description:
-          "Professional account configuration, catalog readiness, profile setup, and message framework alignment.",
-      },
-      {
-        title: "Lead Management & Inquiry Handling",
-        description:
-          "Structured lead capture, response workflows, and conversation handling to improve intent-to-conversion flow.",
-      },
-      {
-        title: "Automated Messaging & Chatbot Integration",
-        description:
-          "Smart auto-replies, routing logic, and chatbot journeys for faster responses and lower manual workload.",
-      },
-      {
-        title: "Broadcast & Campaign Management",
-        description:
-          "Targeted broadcast execution for offers, updates, and engagement campaigns with clean audience segmentation.",
-      },
-    ],
-    processSteps: [
-      {
-        title: "Setup",
-        description:
-          "Configure business profile, message templates, and communication standards for operational clarity.",
-      },
-      {
-        title: "Integrate",
-        description:
-          "Connect automation flows and chatbot logic to support lead stages and response speed.",
-      },
-      {
-        title: "Activate",
-        description:
-          "Launch campaigns, broadcasts, and inquiry workflows for customer acquisition and nurturing.",
-      },
-      {
-        title: "Optimize",
-        description:
-          "Continuously improve engagement quality, conversion movement, and support efficiency.",
-      },
-    ],
-    deliverables: [
-      "WhatsApp Business setup",
-      "Conversation playbook",
-      "Lead handling workflows",
-      "Automation rules",
-      "Chatbot journey map",
-      "Broadcast campaign plan",
-      "Support response matrix",
-      "Monthly performance report",
-    ],
-    kpiImpact: [
-      {
-        label: "Response Speed",
-        value: "+65%",
-        description: "Faster first-response time with structured automation and handling workflows.",
-      },
-      {
-        label: "Lead Conversion",
-        value: "+38%",
-        description: "Higher inquiry-to-qualified-lead conversion through consistent follow-up systems.",
-      },
-      {
-        label: "Repeat Sales",
-        value: "+29%",
-        description: "Improved repeat purchase activity through targeted WhatsApp engagement.",
-      },
-    ],
-    faq: [
-      {
-        q: "Can WhatsApp be used for both sales and support?",
-        a: "Yes. A structured WhatsApp management system supports lead generation, nurturing, conversions, and customer support in one flow.",
-      },
-      {
-        q: "Do you provide automation and chatbot setup?",
-        a: "Yes. We configure automation and chatbot logic for quick response, routing, and better conversation management.",
-      },
-      {
-        q: "How does WhatsApp management improve business outcomes?",
-        a: "It improves response speed, trust, engagement, follow-up quality, and repeat sales while reducing operational workload.",
-      },
-    ],
-  },
+  }),
 };
 
 export function isServiceDetailSlug(slug: string): slug is ServiceDetailSlug {

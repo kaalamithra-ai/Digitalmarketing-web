@@ -27,13 +27,14 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <motion.section
-      className="bg-soft py-14 md:py-20"
+      className="bg-transparent py-14 md:py-20"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <Container>
+        <div className="rounded-[2rem] border border-white/65 bg-white/24 p-8 backdrop-blur-2xl shadow-[0_30px_90px_-50px_rgba(99,102,241,0.36)] md:p-10">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-grad-blue text-glow float-text-med text-3xl font-semibold md:text-4xl">
             Testimonials
@@ -63,8 +64,8 @@ export default function Testimonials() {
             </motion.div>
           ))}
         </div>
+        </div>
       </Container>
     </motion.section>
   );
 }
-

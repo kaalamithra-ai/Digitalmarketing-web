@@ -1,7 +1,9 @@
 import Link from "next/link";
 
 const links = [
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -39,7 +41,7 @@ export default function Footer() {
           <a href="tel:+918884014055" className="mt-2 block text-sm text-neutral-900">
             8884014055
           </a>
-          <p className="mt-2 text-sm text-neutral-900">RMZ Ecoworld, Bengaluru</p>
+          <p className="mt-2 text-sm text-neutral-900">Batawadi, Tumakuru</p>
         </div>
 
         <div>

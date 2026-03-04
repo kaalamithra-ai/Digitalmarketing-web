@@ -153,20 +153,30 @@ function FaqItem({
   const buttonId = `faq-button-${index}`;
 
   return (
-    <div className="card-premium overflow-hidden rounded-2xl">
+    <article
+      className={`rounded-[1.6rem] border p-5 backdrop-blur-xl transition duration-300 md:p-6 ${
+        open
+          ? "border-[#bfd1ff] bg-white/85 shadow-[0_24px_60px_-34px_rgba(83,109,214,0.34)]"
+          : "border-white/70 bg-white/72 shadow-[0_18px_44px_-34px_rgba(99,102,241,0.22)] hover:bg-white/82 hover:shadow-[0_22px_52px_-34px_rgba(99,102,241,0.28)]"
+      }`}
+    >
       <button
         id={buttonId}
         type="button"
         aria-controls={panelId}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-brand-50/40"
+        className="flex w-full items-start justify-between gap-4 text-left"
       >
-        <span className="text-sm font-semibold text-slate-900 md:text-base">{question}</span>
+        <span className="pr-4 text-base font-semibold leading-7 text-slate-900 md:text-lg">
+          {question}
+        </span>
         <span
           className={cx(
-            "inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition",
-            open && "rotate-45 border-brand-300 bg-brand-50 text-brand-700"
+            "grid h-10 w-10 shrink-0 place-items-center rounded-full border text-lg transition",
+            open
+              ? "rotate-45 border-[#bfd1ff] bg-[#eef3ff] text-[#3550bf]"
+              : "border-slate-200 bg-white text-slate-600"
           )}
           aria-hidden="true"
         >
@@ -182,11 +192,13 @@ function FaqItem({
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         )}
       >
-        <div className="overflow-hidden px-5 pb-4 text-sm leading-relaxed text-slate-600">
-          {answer}
+        <div className="overflow-hidden">
+          <div className="mt-4 border-t border-slate-200/70 pt-4 text-sm leading-8 text-slate-600 md:text-[15px]">
+            {answer}
+          </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
@@ -287,8 +299,8 @@ export default function ContactPage() {
             </article>
             <article className="card-premium rounded-2xl p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">OFFICE</p>
-              <p className="mt-2 text-lg font-semibold text-slate-900">RMZ Ecoworld, Bengaluru</p>
-              <p className="mt-1 text-sm text-slate-600">Remote + on-site meetings.</p>
+              <p className="mt-2 text-lg font-semibold text-slate-900">Batawadi, Tumakuru</p>
+              <p className="mt-1 text-sm text-slate-600">In-person and remote meetings by appointment.</p>
             </article>
           </section>
         </RevealSection>
@@ -474,10 +486,6 @@ export default function ContactPage() {
                 <p className="mt-2 text-base font-semibold text-slate-900">Average reply time: 6-12 hours</p>
               </article>
               <article className="card-premium rounded-2xl p-5 backdrop-blur">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">VALUE</p>
-                <p className="mt-2 text-base font-semibold text-slate-900">Free audit included</p>
-              </article>
-              <article className="card-premium rounded-2xl p-5 backdrop-blur">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">TEAMS</p>
                 <p className="mt-2 text-base font-semibold text-slate-900">Remote + Bengaluru teams</p>
               </article>
@@ -490,10 +498,10 @@ export default function ContactPage() {
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h2 className="text-lg font-semibold text-slate-900">Our Location</h2>
-                <p className="mt-1 text-sm text-slate-600">Bengaluru - meetings by appointment.</p>
+                <p className="mt-1 text-sm text-slate-600">Batawadi, Tumakuru - meetings by appointment.</p>
               </div>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=RMZ+Ecoworld+Bengaluru"
+                href="https://www.google.com/maps/search/?api=1&query=Batawadi+Tumakuru"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-blue-700 transition hover:bg-slate-50"
@@ -504,7 +512,7 @@ export default function ContactPage() {
             <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200">
               {/* Replace with your exact place embed URL if needed */}
               <iframe
-                title="Bengaluru Map"
+                title="Tumakuru Map"
                 src="https://www.google.com/maps?q=Tumakuru,Karnataka&output=embed"
                 width="100%"
                 height="360"
@@ -541,7 +549,7 @@ export default function ContactPage() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                {["LinkedIn", "Instagram", "Facebook", "YouTube", "X"].map((label) => (
+                {["LinkedIn", "Instagram"].map((label) => (
                   <a
                     key={label}
                     href="#"
@@ -558,7 +566,7 @@ export default function ContactPage() {
 
         <RevealSection className="mt-8">
           <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-            <h2 className="text-grad-blue text-lg font-semibold">Frequently Asked Questions</h2>
+            <h2 className="text-grad-blue text-xl font-semibold md:text-2xl">Frequently Asked Questions</h2>
             <div className="mt-5 space-y-3">
               {FAQS.map((item, idx) => (
                 <FaqItem key={item.q} index={idx} question={item.q} answer={item.a} />
@@ -571,6 +579,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
-
-

@@ -126,30 +126,31 @@ export default function ServicesGrid({ limit }: ServicesGridProps) {
     typeof limit === "number" && limit > 0 && limit < SERVICES.length;
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-      <div className="mb-12 text-center">
-        <div className="hero-float">
-          <h2 className="text-grad-blue hero-animated-text shimmer text-3xl font-extrabold md:text-4xl">Services We Offer</h2>
+    <section className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
+      <div className="rounded-[2rem] border border-white/65 bg-white/28 px-4 py-8 shadow-[0_30px_90px_-50px_rgba(99,102,241,0.38)] backdrop-blur-2xl sm:px-6 md:px-8 md:py-10">
+        <div className="mb-8 text-center md:mb-12">
+          <div className="hero-float">
+            <h2 className="text-grad-blue hero-animated-text shimmer text-[2rem] font-extrabold leading-tight sm:text-3xl md:text-4xl">Services We Offer</h2>
+          </div>
         </div>
-      </div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {visibleServices.map((service) => (
-          <ServiceCard key={service.href} {...service} />
-        ))}
-      </div>
-
-      {showAllServicesButton ? (
-        <div className="mt-12 flex justify-center">
-          <Link
-            href="/services"
-            className="btn-primary inline-flex items-center justify-center rounded-xl px-10 py-3 text-base font-semibold"
-          >
-            All Services &raquo;
-          </Link>
+        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {visibleServices.map((service) => (
+            <ServiceCard key={service.href} {...service} />
+          ))}
         </div>
-      ) : null}
 
+        {showAllServicesButton ? (
+          <div className="mt-10 flex justify-center md:mt-12">
+            <Link
+              href="/services"
+              className="btn-primary inline-flex w-full items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold sm:w-auto sm:px-10 sm:text-base"
+            >
+              All Services &raquo;
+            </Link>
+          </div>
+        ) : null}
+      </div>
     </section>
   );
 }
