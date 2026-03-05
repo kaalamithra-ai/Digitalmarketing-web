@@ -13,12 +13,22 @@ export default function ContactForm() {
     setLoading(true);
     setSubmitted(false);
 
-    // Keep existing local-only submit behavior.
-    void values;
-    await Promise.resolve();
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          message: "",
+        }),
+      });
 
-    setSubmitted(true);
-    setLoading(false);
+      if (response.ok) {
+        setSubmitted(true);
+      }
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (

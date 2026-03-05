@@ -41,13 +41,6 @@ export default function WhatsAppManagementPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ServiceDetailTemplate
         data={service}
-        seo={{
-          primaryKeyword: "whatsapp management services in bangalore",
-          secondaryKeywords: ["whatsapp marketing services", "whatsapp automation services"],
-          ctaTitle: "WhatsApp Management in Bangalore",
-          ctaDescription:
-            "If you need whatsapp management services in bangalore, Kaalamithra helps you build a structured WhatsApp system for lead handling, automation, support, and conversion-focused engagement.",
-        }}
       />
     </>
   );

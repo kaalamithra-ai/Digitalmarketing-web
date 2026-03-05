@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default function MarketingAutomationPage() {
-  const service = SERVICE_DETAILS["marketing-automation-analysis"];
+  const service = SERVICE_DETAILS["marketing-automation"];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -40,13 +40,6 @@ export default function MarketingAutomationPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ServiceDetailTemplate
         data={service}
-        seo={{
-          primaryKeyword: "marketing automation services in bangalore",
-          secondaryKeywords: ["marketing automation agency in bangalore"],
-          ctaTitle: "Marketing automation & analysis in Bangalore",
-          ctaDescription:
-            "If you need marketing automation services in bangalore, Kaalamithra helps you automate workflows, improve decision-making, and scale growth with data-backed execution.",
-        }}
       />
     </>
   );

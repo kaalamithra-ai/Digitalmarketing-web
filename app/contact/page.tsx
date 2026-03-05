@@ -233,12 +233,33 @@ export default function ContactPage() {
     return next;
   };
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const next = validate();
     setErrors(next);
     if (Object.keys(next).length) return;
-    setStatus("success");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          companyName: form.companyName,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+          services,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+      }
+    } catch {
+      setStatus("idle");
+    }
   };
 
   const describedBy = useMemo(
